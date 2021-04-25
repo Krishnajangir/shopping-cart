@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <!-- <object type="text/html" data="/home.html"></object> -->
+    <main>
+        <heading>
+            <div class="navbar">
+                <div class="first-box">
+                    <a class="navbar-" href="#">
+                        <img src="../static/images/logo.png" width="100" height="100" alt="cart logo">
+                    </a>
+                </div>
+                <div class="mid-box">
+                    <a href="./home.html">
+                        <span class="navbar-brand mb-0 h1">Home</span>
+                    </a>
+                    <a href="./products.html">
+                        <span class="navbar-brand mb-0 h1">Products</span>
+                    </a>
+                </div>
+                <div class="last-box">
+                    <a href="./signIn.html">
+                        <span class="navbar-brand mb-0 h1">SignIn</span>
+                    </a>
+                    <a href="./register.html">
+                        <span class="navbar-brand mb-0 h1">Register</span>
+                    </a>
+                    <div class="cart" onclick="getCartData()"> <a href="#" >
+                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span
+                                id="items">Items</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </heading>
+        <section class="side-nav">
+            <div class="topnav">
+                <a class="active" onclick="goToLink('fruit')">Fruits And Vegetables</a>
+
+                <!-- Navigation links (hidden by default) -->
+                <div id="myLinks">
+                    <a onclick="goToLink('bakeries')">Bakery Cakes And Dairy</a>
+                    <a onclick="goToLink('beverage')">Beverages</a>
+                    <a onclick="goToLink('beauties')">Beauty And Hygiene</a>
+                    <a onclick="goToLink('babies')">Baby Care</a>
+                </div>
+                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i class="arrow down"></i>
+                </a>
+            </div>
+            <div id="own-products">
+            </div>
+        </section>
+        
+        <!-- modal -->
+        <section>
+            <div id="itemExist" class="modal">
+                <div class="modal-content">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <h4>Item is Already in the cart.</h4>
+                </div>
+              </div>
+              <div id="itemNotExist" class="modal">
+                <div class="modal-content">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <h4>Item Added to cart successfully.</h4>
+                </div>
+              </div>
+        </section>
+        <!-- cart modal -->
+        <section>
+                <div id="cartModal" class="w3-modal">
+                  <div class="w3-modal-content">
+                    <header class="w3-container w3-header"> 
+                      <span onclick="document.getElementById('cartModal').style.display='none'" 
+                      class="w3-button w3-display-topright">&times;</span>
+                      <h5 class="modal-header"></h5>
+                    </header>
+                    <div class="w3-container items">
+                    </div>
+                    <div class="model-content">
+                        <div class="model-content-ad-left">
+                            <img src="../static/images/lowest-price.png" alt="lowest price">
+                        </div>
+                        <div class="model-content-right">
+                            <p>You won't find it cheaper anywhere</p>
+                        </div>
+                    </div>
+                    <div class="model-content-footer">
+                        <span class="modal-footer-span">Promo code can be applied on payment page.</span>
+                        <button class="model-content-footer-button">
+                                <span>Proceed to Checkout</span>
+                                <span> Rs.187 <i class='fas fa-arrow-right'></i></span>
+                        </button>
+                    </div>
+                  </div>
+                </div>
+                <div id="emptyCart" class="w3-modal">
+                    <div class="w3-modal-content">
+                      <header class="w3-container w3-header"> 
+                        <span onclick="document.getElementById('emptyCart').style.display='none'" 
+                        class="w3-button w3-display-topright">&times;</span>
+                        <h5 class="modal-header">My Cart</h5>
+                      </header>
+                      <div class="empty-content">
+                          <div class="model-empty-content">
+                              <p>No items in your cart.</p>
+                              <span>Your favorite item are just a click away.</span>
+                          </div>
+                      </div>
+                      <div class="model-content-footer">
+                          <button class="model-content-footer-button">
+                                  <span>Start Shopping</span>
+                          </button>
+                      </div>
+                    </div>
+                  </div>
+        </section>
+        <footer class="own-footer">
+            <div class="footer-text">Copyright &copy; Sabka Bazaar Grocery Supplies Pvt Ltd
+            </div>
+        </footer>
+    </main>
+    <script src="../js/products.js"></script>
+    <script src="../js/cart.js"></script>
+
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+</body>
+
+</html>

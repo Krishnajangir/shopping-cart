@@ -1,0 +1,214 @@
+#own-cat {
+  display: flex;
+  flex-direction: column;
+}
+
+.gred-shadow {
+  height: 3px;
+  background: linear-gradient(90deg, #f5f5f52e 13%, #9e9e9e 58%, #f5f5f55c 84%);
+}
+
+.own-cat-info {
+  text-align: center;
+
+  h1 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  button {
+    margin-bottom: 5%;
+    font-family: cursive;
+    background-color: #c50c72;
+    color: white;
+    border: none;
+    padding: 2%;
+    cursor: pointer;
+  }
+
+  p {
+    font-family: ui-serif;
+  }
+}
+
+.own-main {
+  display: flex;
+}
+
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.w3-card, .w3-card-2 {
+  box-shadow: none !important;
+}
+
+/* Hide the images by default */
+
+.mySlides {
+  display: none;
+}
+
+/* Next & previous buttons */
+
+.prev {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* Position the "next button" to the right */
+
+/* On hover, add a black background color with a little bit see-through */
+
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+
+.dot {
+  cursor: pointer;
+  height: 9px;
+  width: 8px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Fading animation */
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: .4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.silder-dot {
+  text-align: center;
+}
+
+.home-cart {
+  background-color: #80808042;
+  padding: 10%;
+  position: relative;
+  top: 30%;
+  left: 20%;
+}
+
+.home-footer{
+  background-color: #8080801a;
+  display: flex;
+}
+
+.home-footer-text {
+  font-size: 11px;
+  margin: auto;
+  font-weight: bolder;
+  font-family: sans-serif;
+  padding: 11px;
+}
+
+.w3-panel {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 10% 0 10%;
+}
+
+@media only screen and (max-width: 700px) {
+  .w3-container, .w3-panel {
+    padding: 0px !important;
+  }
+
+  .even-img {
+    height: 100%;
+    width: 52%;
+    position: relative;
+    top: 3em;
+  }
+
+  .own-cat-info p {
+    width: 16em;
+    font-size: 13px;
+  }
+
+  .odd-img {
+    height: 100%;
+    width: 52%;
+    position: relative;
+    top: 2em;
+  }
+}
