@@ -543,10 +543,12 @@
 @media only screen and (max-width: 1100px) {
   #own-products {
     display: inline-grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     grid-gap: 5px;
     background-color: white;
     padding: 10px; }
+  #myLinks {
+    display: block; }
   .text-css {
     display: inline-block;
     background-color: #80808026;
@@ -634,7 +636,7 @@
 .items {
   overflow-y: scroll;
   margin: 3%;
-  height: 12em; }
+  height: 20em; }
 
 .w3-header {
   color: #fff !important;
@@ -691,7 +693,7 @@
 .w3-modal-content {
   width: 30em !important;
   left: 20% !important;
-  height: 30em !important; }
+  height: 40em !important; }
 
 .w3-card-4 {
   height: 100%;
@@ -720,7 +722,7 @@
 .desc {
   padding: 1%; }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 700px) {
   .text-css {
     display: inline-block;
     background-color: #80808026;
@@ -775,6 +777,10 @@
     width: 100%;
     position: relative;
     color: white; }
+  .items {
+    overflow-y: scroll;
+    margin: 3%;
+    height: 20em; }
   .topnav {
     overflow: hidden;
     background-color: #8080801a;
@@ -866,7 +872,7 @@
   .w3-modal-content {
     width: 30em !important;
     left: 0% !important;
-    height: 30em !important; } }
+    height: 40em !important; } }
 
 .container-fluid, .flex-container {
   display: flex; }

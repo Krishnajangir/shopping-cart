@@ -66,7 +66,7 @@ getRenderedValues = (value) => {
 };
 
 productInterface = () => {
-  for (let i = 0; i < outputData.length; i++) {
+  for (let i in outputData) {
     dataNew.push(outputData[i]);
     let products = document.createElement("div");
     products.className = "products";
@@ -125,6 +125,7 @@ window.onclick = function(event) {
     $('#itemExist').hide();
   }
 }
+
 
 getProductList(getRenderedValues);
 
