@@ -49,7 +49,7 @@ getProductCategories = () => {
 };
 
 categoriesDivision = (categories) => {
-  for (var i = 0; i < categories.length; i++) {
+  for (let i in categories) {
     if (!categories[i].imageUrl) {
       categories.splice(i - 1, 1);
     }
@@ -70,7 +70,7 @@ categoriesDivision = (categories) => {
    else {
     badge.innerHTML =
     `<div class="w3-panel w3-card" style="display:flex;">
-    <div class="own-cat-info"><h1>
+    <div class="own-cat-info even-text"><h1>
     ${dataNew[i].name}</h1><p>
     ${dataNew[i].description} </p><button  onclick='goToProductsList("${dataNew[i].key}")' id='explore'>
     Explore 
