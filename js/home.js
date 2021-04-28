@@ -6,7 +6,6 @@ let homeDetails;
 let productItem;
 
 getProductCategories = () => {
-  localStorage.clear();
   fetch(CATEGORIES_END_POINT)
     .then((response) => {
       return response.json();

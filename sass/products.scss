@@ -1,18 +1,24 @@
 
-#own-products {
+@mixin  products-main-class {
   display: inline-grid;
+  background-color: white;
+}
+@mixin top-navbar {
+  overflow: hidden;
+  background-color: #8080801a;
+  position: relative;
+  width: 100vw;
+}
+#own-products {
+  @include products-main-class;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
-  background-color: white;
   padding: 10px;
   width: 300em;
 }
 
 .topnav {
-  overflow: hidden;
-  background-color: #8080801a;
-  position: relative;
-  width: 100vw;
+  @include top-navbar;
 
   a:active {
     background: red;
@@ -41,6 +47,10 @@
   color: black;
   background-color: #c50c72;
 }
+.total-cart-cost {
+    font-weight: 600;
+    padding: 5%;
+}
 
 .side-nav {
   display: flex;
@@ -51,6 +61,9 @@
   background-color: #8080801a;
   display: flex;
   justify-content: space-between;
+}
+.fa-trash {
+  cursor: pointer;
 }
 
 .footer-text {
@@ -329,10 +342,11 @@
     background-color: #c50c72;
     justify-content: space-between;
     color: white;
-    
+    cursor: pointer;
 }
 .model-content-footer-button span {
   padding:2%;
+  margin: auto;
 }
 .modal-footer-span{
     text-align: center;
@@ -397,6 +411,12 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .cart-full-content {
+    left: 0% !important;
+  }
+  .empty-modal-content {
+    left: 0% !important;
+  }
   .text-css {
     display: inline-block;
     background-color: #80808026;
@@ -463,9 +483,8 @@
   }
 
   #own-products {
-    display: inline-grid;
+    @include products-main-class;
     grid-template-columns: repeat(1, 1fr);
-    background-color: white;
     padding: 10px;
   }
 
@@ -485,10 +504,7 @@
     height: 20em;
   }
   .topnav {
-    overflow: hidden;
-    background-color: #8080801a;
-    position: relative;
-    width: 100%;
+   @include top-navbar;
 
     a {
       color: rgb(77, 75, 75);
@@ -592,7 +608,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-  height: 6em;
+  height: 10em;
 }
 
 /* The Close Button */
@@ -609,24 +625,49 @@
     cursor: pointer;
   }
 }
+#item-header {
+  position: relative;
+  bottom: 25%;
+}
 
-@media only screen and (min-device-width : 750px) 
-and (max-device-width : 1024px)   {
+@media only screen and (min-width : 700px) 
+and (max-width : 1024px)   {
+  .empty-content {
+    text-align: center;
+    margin-top: 8em;
+    margin-bottom: 20em;
+  }
+  .footer-text {
+    font-size: 11px;
+    margin: 1%;
+    font-weight: bolder;
+    position: relative;
+    left: 0%;
+  }
+  #item-header {
+    position: relative;
+    bottom: 0%;
+}
+  .side-nav {
+    display: flex;
+    margin: 0%;
+  }
   .cart-full-content {
     width: 30em !important;
-    left: 0% !important;
+    left: 14% !important;
+    top: 4%;
     height: 40em !important;
 }
 .empty-modal-content {
-  width: 30em !important;
-  left: 0% !important;
-  height: 30em !important;
+     width: 30em !important;
+    left: 14% !important;
+    top: 4%;
+    height: 40em !important;
 }
   #own-products {
-    display: inline-grid;
+    @include products-main-class;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 5px;
-    background-color: white;
     padding: 10px;
   }
   #myLinks {
@@ -703,12 +744,13 @@ and (max-device-width : 1024px)   {
 }
 @media only screen and (min-width: 1100px) {
   #own-products {
-    display: inline-grid;
+    @include products-main-class;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 10px;
-    background-color: white;
     padding: 10px;
     width: 300em;
   }
-  
+  .w3-card-4 p {
+    font-size: 13px;
+  }
 }

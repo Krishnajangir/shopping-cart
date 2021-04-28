@@ -1,3 +1,8 @@
+@mixin cart-property {
+  float: right;
+}
+
+
 .cart-elements {
   display: flex;
   justify-content: center;
@@ -55,7 +60,7 @@
 }
 
 .total-cart-cost {
-  float: right;
+  @include cart-property;
 }
 
 #cart-title {
@@ -151,7 +156,7 @@
 
 .pay-img {
   width: 11%;
-  float: right;
+  @include cart-property;
 }
 
 .shop-img {
@@ -210,7 +215,7 @@
 
 .cart-modal-close {
   color: #aaaaaa;
-  float: right;
+  @include cart-property;
   font-size: 28px;
   font-weight: bold;
 
@@ -229,11 +234,6 @@
     height: 33em;
   }
 
-  // .w3-panel {
-  //   display: flex;
-  //   width: 18em;
-  // }
-
   .card-2 {
     width: 20em;
     position: relative;
@@ -242,7 +242,6 @@
   }
 }
 
-@media only screen and (max-width: 300px) {}
 
 @media only screen and (max-width: 360px) {
   .cart {

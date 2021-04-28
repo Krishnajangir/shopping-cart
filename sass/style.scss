@@ -114,6 +114,20 @@
     display: flex;
     flex-wrap: wrap;
   }
+  @media only screen and (min-width:750px) and (max-width: 1024px) {
+    .navbar {
+      background-color: white;
+      box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;
+      position: static;
+      margin-bottom: 10px;
+      display: flex;
+      padding-left: 0%;
+      padding-right: 10%;
+    }
+    .navbar span{
+      
+    }
+  }
   @media only screen and (max-width:750px) {
     .navbar {
       background-color: white;
