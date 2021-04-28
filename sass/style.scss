@@ -109,13 +109,12 @@
       top: 4%;
       left: 20%;
     }
-    
   }
   .own-head {
     display: flex;
     flex-wrap: wrap;
   }
-  @media only screen and (max-width:700px) {
+  @media only screen and (max-width:750px) {
     .navbar {
       background-color: white;
       box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;

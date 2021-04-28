@@ -15,9 +15,7 @@ getProductsDetails = () => {
     })
     .then((data) => {
       cartRenderedValues = data;
-    }).catch(error => {
-      alert('Server is not running')
-    });
+    })
 };
 
 getCartData = () => {

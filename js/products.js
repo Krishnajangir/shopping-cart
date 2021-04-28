@@ -12,15 +12,10 @@ getRenderedValues = (value) => {
   fetch(PRODUCTS_END_POINT)
     .then((response) => {
       return response.json();
+    }).catch(() => {
+       alert('server is not running please run server first with `npm start`')
     })
     .then((data) => {
-      dataNew = [];
-      fruits = [];
-      bakery = [];
-      beverages = [];
-      beauty = [];
-      baby = [];
-      outputData = [];
       renderedValues = data;
       data.forEach((val) => {
         switch (val.category) {

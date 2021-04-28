@@ -4,38 +4,6 @@ const BANNERS_END_POINT = "http://localhost:5000/banners";
 let dataNew = [];
 let homeDetails;
 let productItem;
-getSlideImages = (getProductCategories) => {
-  fetch(CATEGORIES_END_POINT)
-  .then((response) => {
-    return response.json();
-  })
-  .then((data) => {
-  //   data.forEach((res) => {
-  //     let banners = document.createElement("div");
-  //     banners.className = "banners";
-  //     `
-  //     <div class="slideshow-container">
-  //         <div class="mySlides fade">
-  //             <img src="${res.bannerImageUrl}"  alt="${res.bannerImageAlt}" height="30%" width="100%">
-  //         </div>
-  //         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  //         <a class="next" onclick="plusSlides(1)">&#10095;</a>
-  //         <br>
-  //         <div class="gred-shadow "></div>
-  //         <div class="silder-dot">
-  //             <span class="dot" onclick="currentSlide(1)"></span>
-  //             <span class="dot" onclick="currentSlide(2)"></span>
-  //             <span class="dot" onclick="currentSlide(3)"></span>
-  //             <span class="dot" onclick="currentSlide(4)"></span>
-  //             <span class="dot" onclick="currentSlide(5)"></span>
-  //         </div>
-  // </div>`
-  // document.getElementById("img-slider").appendChild(banners);
-  //   });
-  })
-  getProductCategories();
-  
-};
 
 getProductCategories = () => {
   localStorage.clear();
@@ -45,7 +13,9 @@ getProductCategories = () => {
     })
     .then((data) => {
       categoriesDivision(data);
-    });
+    }).catch(() => {
+      alert('server is not running please run server first with `npm start`')
+   })
 };
 
 categoriesDivision = (categories) => {
@@ -80,15 +50,6 @@ categoriesDivision = (categories) => {
      document.getElementById("own-cat").appendChild(badge);
   }
 }
-addCartDetails = () => {
-  fetch("../server/addToCart/index.get.json")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => (homeDetails = data));
-};
-
-getSlideImages(getProductCategories);
 
 var slideIndex = 1;
 showSlides(slideIndex);
@@ -141,3 +102,4 @@ goToProductsList = (text) => {
   localStorage.setItem('productItem' , productItem);
   window.location.href = "http://127.0.0.1:5500/views/products.html";
 }
+getProductCategories()
