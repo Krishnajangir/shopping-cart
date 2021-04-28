@@ -9,6 +9,50 @@
   position: relative;
   width: 100vw;
 }
+@mixin flex-property {
+  display: flex;
+}
+@mixin btn-property {
+  cursor: pointer;
+}
+@mixin modal-prop {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+@mixin img-prop {
+  width: 12em;
+      height: 17em;
+}
+@mixin text-prop {
+  display: inline-block;
+    background-color: #80808026;
+    margin: 3%;
+    overflow: hidden;
+    text-overflow: clip;
+    height: 8em;
+}
+@mixin footer-prop {
+  justify-content: space-evenly;
+  position: relative;
+  font-size: 20px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+@mixin span-prop {
+  padding-left: 20%;
+  font-size: 16px;
+}
+@mixin product-footer {
+  background-color: rgb(173, 73, 90);
+  padding: 28px;
+  margin-bottom: 22px;
+}
+@mixin footer-btn {
+  width: 100%;
+    position: relative;
+    color: white;
+}
 #own-products {
   @include products-main-class;
   grid-template-columns: repeat(4, 1fr);
@@ -35,17 +79,16 @@
     text-decoration: none;
     font-size: 17px;
     display: block;
-    cursor: pointer;
+    @include btn-property;
+  }
+  a:hover {
+    color: black;
+    background-color: #c50c72;
   }
 }
 
 .active, #myLinks a {
   border-bottom: 1px solid grey;
-}
-
-.topnav a:hover {
-  color: black;
-  background-color: #c50c72;
 }
 .total-cart-cost {
     font-weight: 600;
@@ -53,17 +96,17 @@
 }
 
 .side-nav {
-  display: flex;
+  @include flex-property;
   margin: 0 9% 0 9%;
 }
 
 .own-footer {
   background-color: #8080801a;
-  display: flex;
+  @include flex-property;
   justify-content: space-between;
 }
 .fa-trash {
-  cursor: pointer;
+  @include btn-property;
 }
 
 .footer-text {
@@ -76,25 +119,13 @@
 
 .modal {
   display: none;
-
-  /* Hidden by default */
   position: fixed;
-
-  /* Stay in place */
   z-index: 1;
-
-  /* Sit on top */
   padding-top: 100px;
-
-  /* Location of the box */
   left: 30%;
   top: 0;
   width: 50%;
-
-  /* Full width */
   height: 100%;
-
-  /* Full height */
   overflow: auto;
 }
 
@@ -113,7 +144,6 @@
   animation-duration: 0.4s;
 }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -149,14 +179,12 @@
   &:hover, &:focus {
     color: #000;
     text-decoration: none;
-    cursor: pointer;
+    @include btn-property;
   }
 }
 
 .modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+ @include modal-prop;
 }
 
 .modal-body {
@@ -164,7 +192,7 @@
 
   .body-img {
     box-shadow: 1px 2px 12px 1px #8080802b;
-    display: flex;
+    @include flex-property;
 
     span {
       position: relative;
@@ -176,7 +204,7 @@
 
   .body-content {
     box-shadow: 1px 2px 12px 1px #8080802b;
-    display: flex;
+    @include flex-property;
     margin: 2% 0% 5% 0%;
 
     span {
@@ -195,9 +223,7 @@
 }
 
 .modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+ @include modal-prop;
 
   p {
     color: black;
@@ -302,7 +328,7 @@
 }
 
 .cart-element {
-  display: flex;
+  @include flex-property;
   box-shadow: 0px 1px 2px 1px #80808069;
   margin: 1%;
 }
@@ -317,12 +343,12 @@
   height: 4em;
 }
 .model-content {
-  display: flex;
+  @include flex-property;
     margin: 6%;
     box-shadow: 1px 1px 3px 1px #80808047;
 }
 .model-content-footer {
-  display: flex;
+  @include flex-property;
   flex-direction: column;
 }
 .modal-text {
@@ -335,14 +361,14 @@
   top: 0em;
 }
 .model-content-footer-button {
-  display: flex;
+  @include flex-property;
     border: none;
     margin: 2%;
     height: 3em;
     background-color: #c50c72;
     justify-content: space-between;
     color: white;
-    cursor: pointer;
+    @include btn-property;
 }
 .model-content-footer-button span {
   padding:2%;
@@ -357,7 +383,7 @@
   width: 10%;
 }
 .footer {
-  display: flex;
+  @include flex-property;
   justify-content: space-between;
   padding-bottom: 4%;
 
@@ -418,30 +444,21 @@
     left: 0% !important;
   }
   .text-css {
-    display: inline-block;
-    background-color: #80808026;
-    margin: 3%;
-    overflow: hidden;
-    text-overflow: clip;
-    height: 8em;
+    @include text-prop;
 }
   .footer {
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    font-size: 20px;
-    flex-wrap: wrap;
-    flex-direction: column;
+    @include flex-property;
+    @include footer-prop;
   }
 
   .side-nav {
-    display: flex;
+    @include flex-property;
     flex-wrap: wrap;
     margin: 0;
   }
 
   .base-footer {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
@@ -449,8 +466,7 @@
     position: relative;
 
     img {
-      width: 12em;
-      height: 17em;
+      @include img-prop;
     }
   }
 
@@ -462,8 +478,7 @@
     }
 
     span {
-      padding-left: 20%;
-      font-size: 16px;
+      @include span-prop;
     }
   }
 
@@ -472,12 +487,12 @@
   }
 
   .w3-card-4 {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
   .base-header {
-    display: flex;
+    @include flex-property;
     margin-top: 2em;
 
   }
@@ -489,14 +504,10 @@
   }
 
   .footer {
-    background-color: rgb(173, 73, 90);
-    padding: 28px;
-    margin-bottom: 22px;
+    @include product-footer;
   }
   .footer button {
-    width: 100%;
-    position: relative;
-    color: white;
+    @include footer-btn;
   }
   .items {
     overflow-y: scroll;
@@ -622,7 +633,7 @@
   &:hover, &:focus {
     color: #000;
     text-decoration: none;
-    cursor: pointer;
+    @include btn-property;
   }
 }
 #item-header {
@@ -649,7 +660,7 @@ and (max-width : 1024px)   {
     bottom: 0%;
 }
   .side-nav {
-    display: flex;
+    @include flex-property;
     margin: 0%;
   }
   .cart-full-content {
@@ -674,33 +685,20 @@ and (max-width : 1024px)   {
     display: block;
   }
   .text-css {
-    display: inline-block;
-    background-color: #80808026;
-    margin: 3%;
-    overflow: hidden;
-    text-overflow: clip;
-    height: 8em;
+    @include text-prop;
 }
   .footer {
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    font-size: 20px;
-    flex-wrap: wrap;
-    flex-direction: column;
+    @include flex-property;
+    @include footer-prop;
   }
   .footer {
-    background-color: rgb(173, 73, 90);
-    padding: 28px;
-    margin-bottom: 22px;
+    @include product-footer;
   }
   .footer button {
-    width: 100%;
-    position: relative;
-    color: white;
+    @include footer-btn;
   }
   .base-footer {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
@@ -708,8 +706,7 @@ and (max-width : 1024px)   {
     position: relative;
 
     img {
-      width: 12em;
-      height: 17em;
+      @include img-prop;
     }
   }
   .w3-card-4 {
@@ -720,8 +717,7 @@ and (max-width : 1024px)   {
     }
 
     span {
-      padding-left: 20%;
-      font-size: 16px;
+      @include span-prop;
     }
   }
 
@@ -730,12 +726,12 @@ and (max-width : 1024px)   {
   }
 
   .w3-card-4 {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
   .base-header {
-    display: flex;
+    @include flex-property;
     margin-top: 2em;
 
   }

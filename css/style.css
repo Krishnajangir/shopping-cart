@@ -349,12 +349,6 @@
     position: relative;
     top: 2em; } }
 
-.register-text {
-  font-size: 15px; }
-
-.navbar span {
-  color: black; }
-
 #own-products {
   display: inline-grid;
   background-color: white;
@@ -380,13 +374,13 @@
     font-size: 17px;
     display: block;
     cursor: pointer; }
+    
+  .topnav a:hover {
+    color: black;
+    background-color: #c50c72; }
 
 .active, #myLinks a {
   border-bottom: 1px solid grey; }
-
-.topnav a:hover {
-  color: black;
-  background-color: #c50c72; }
 
 .total-cart-cost {
   font-weight: 600;
@@ -413,19 +407,13 @@
 
 .modal {
   display: none;
-  /* Hidden by default */
   position: fixed;
-  /* Stay in place */
   z-index: 1;
-  /* Sit on top */
   padding-top: 100px;
-  /* Location of the box */
   left: 30%;
   top: 0;
   width: 50%;
-  /* Full width */
   height: 100%;
-  /* Full height */
   overflow: auto; }
 
 .modal-content {
@@ -441,7 +429,6 @@
   animation-name: animatetop;
   animation-duration: 0.4s; }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -982,7 +969,8 @@
   text-align: center;
   padding: 8px 18px;
   font-size: 14px;
-  text-decoration: none; }
+  text-decoration: none;
+  cursor: pointer; }
 
 .login-box a:hover {
   background: #03e9f4;
@@ -1013,6 +1001,12 @@
 .sign-container {
   font-size: 20px; }
 
+.register-text {
+  font-size: 15px; }
+
+.navbar span {
+  color: black; }
+
 * {
   box-sizing: border-box; }
 
@@ -1031,8 +1025,8 @@ html, body {
   position: static;
   margin-bottom: 10px;
   display: flex;
-  padding-left: 10%;
-  padding-right: 10%; }
+  padding-right: 10%;
+  padding-left: 10%; }
 
 .navbar span {
   position: relative;
@@ -1141,7 +1135,7 @@ a {
     position: static;
     margin-bottom: 10px;
     display: flex;
-    padding-left: 0%;
-    padding-right: 10%; }
+    padding-right: 10%;
+    padding-left: 0%; }
   .nav-hide-item {
     display: none; } }
