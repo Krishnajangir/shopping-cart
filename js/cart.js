@@ -1,5 +1,6 @@
 const PRODUCTS_ENDPOINTS = "http://localhost:5000/products";
 const CART_PATH = "http://127.0.0.1:5500/views/cart.html";
+const PRODUCT_PATH = "http://127.0.0.1:5500/views/products.html";
 
 let cartRenderedValues = [];
 dataNew = [];
@@ -15,9 +16,18 @@ getProductsDetails = () => {
     })
     .then((data) => {
       cartRenderedValues = data;
+      if(document.body.clientWidth < 500) {
+        getCartData();
+      } else window.location.href = PRODUCT_PATH;
   })
+   
 };
 
+resizeCartWindow = () => {
+  if(document.body.clientWidth > 500) {
+    window.location.href = PRODUCT_PATH;
+  }
+}
 getCartData = () => {
   productId = JSON.parse(localStorage.getItem("productId"));
     if (productId !== null) {
@@ -29,23 +39,25 @@ getCartData = () => {
           }
         });
       }); 
-      cartInterface(cartValues , productId.length);
+      if(document.body.clientWidth < 500) { 
+        document.getElementById('cart-empty-container').style.display = "none";
+        document.getElementById('mobile-cart-container').style.display = "block";
+        getMobileCartData(cartValues , productId.length)
+      }
+      else cartInterface(cartValues , productId.length);
   } else {
-   emptyCartInterface();
+    if(document.body.clientWidth < 500)  emptyMobileCartInterface();
+    else emptyCartInterface(cartValues , productId.length);
   }
 };
 
-emptyCartInterface = () => {
-  document.getElementById("emptyCart").style.display = "block";
-};
-
-cartInterface = (cartValues , itemNumber) => {
+getMobileCartData = (cartValues , itemNumber) => {
   dataNew = [];
   for (let i in cartValues) {
     dataNew.push(cartValues[i]);
-    let cartElement = document.createElement("card");
-    cartElement.className = "cart-element";
-    cartElement.innerHTML = `<img id="imgg" src="${dataNew[i].imageURL}" alt="cart-images" height="100px">
+    let cartMobile = document.createElement("card");
+    cartMobile.className = "cart-mobile";
+    cartMobile.innerHTML = `<img id="imgg" src="${dataNew[i].imageURL}" alt="cart-images" height="100px">
                 <div> <h4 class="modal-text">${dataNew[i].name}</h4> <i onclick="increaseItems('${quantity}', '${dataNew[i].price}')" class="fa fa-plus cart-icon-class"></i>
                     <input class="itemQuantity" value="${quantity}" disabled/>
                     <i onclick="decreaseItems('${quantity}', '${dataNew[i].price}')" class="fa fa-minus cart-icon-class"></i>
@@ -54,15 +66,22 @@ cartInterface = (cartValues , itemNumber) => {
                     <div class="total-cart-cost">
                         <span>Total: Rs. </span><span class="priceNew">${dataNew[i].price} </span>
                     </div>`;
-                    document.querySelector(".items").appendChild(cartElement);
-                    cartItemInterface(itemNumber);
-                    document.getElementById("cartModal").style.display = "block";
+                    document.querySelector(".items").appendChild(cartMobile);
+                    cartMobileItemInterface(itemNumber);
   }
+}
 
-};
+emptyMobileCartInterface= () => {
+     document.getElementById('cart-empty-container').style.display = "block";
+     document.getElementById('mobile-cart-container').style.display = "none";
 
-cartItemInterface = (itemNumber) => {
-  document.querySelector(".modal-header").innerHTML = `My Cart (${itemNumber} items) <span onclick="deleteCartData()"><i class="fa fa-trash " ></i></span>`;
+}
+
+
+
+cartMobileItemInterface = (itemNumber) => {
+  document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) <span onclick="deleteMobileCartData()"><i class="fa fa-trash " ></i></span>`;
+
 }
 
 increaseItems = (quantity, price) => {
@@ -89,9 +108,16 @@ closeCartModal = () => {
   document.getElementById('cartModal').style.display = "none";
   document.getElementById("emptyCart").style.display = "none";
 }
+deleteMobileCartData = () => {
+  $('.items').empty();
+  emptyMobileCartInterface()
+}
 window.onclick = function (event) {
   if (event.target == document.getElementById('cartModal') || event.target == document.getElementById('emptyCart')) {
     closeCartModal();
   }
 };
+
+startShop = () => window.location.href = PRODUCT_PATH;
+
 getProductsDetails();

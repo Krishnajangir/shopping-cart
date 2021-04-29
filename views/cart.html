@@ -11,7 +11,7 @@
     <title>Shopping Cart</title>
 </head>
 
-<body>
+<body onresize="resizeCartWindow()">
     <main>
         <heading>
             <div class="navbar">
@@ -22,18 +22,18 @@
                 </div>
                 <div class="mid-box">
                     <a href="./home.html">
-                        <span class="navbar-brand mb-0 h1">Home</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
                     </a>
                     <a href="./products.html">
-                        <span class="navbar-brand mb-0 h1">Products</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
                     </a>
                 </div>
                 <div class="last-box">
                     <a href="./signIn.html">
-                        <span class="navbar-brand mb-0 h1">SignIn</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
                     </a>
                     <a href="./register.html">
-                        <span class="navbar-brand mb-0 h1">Register</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
                     </a>
                     <div class="cart" > <a href="./cart.html">
                             <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span
@@ -48,33 +48,44 @@
             <div id="mobile-cart-container">
               
                 <div class="w3-card-4 card-1">
-                  <header class="cart-w3-container w3-cart-white">
-                    <h5 id="title"></h5>
+                  <header class="cart-w3-container cart-card-title">
+                    <h5 class="cart-item-header"></h5>
                   </header>
               
-                  <div class="cart-w3-container">
-                    <div id="cart" ><p></p></div>
+                  <div class="cart-w3-container cart-data-list">
+                    <div class="w3-container items">
+                    </div>
                   </div>
-                  <footer class="cart-w3-container w3-blue">
-                    <h5 onclick="proceedToBuy()">Proceed to Checkout</h5>
-                    <i class='fas fa-arrow-right'></i>
+                  <div class="model-content">
+                    <div class="model-content-ad-left">
+                        <img src="../static/images/lowest-price.png" alt="lowest price">
+                    </div>
+                    <div>
+                        <p  class="cart-right-text">You won't find it cheaper anywhere</p>
+                    </div>
+                </div>
+                  <footer class="cart-w3-container model-content-footer">
+                    <span class="modal-footer-span">Promo code can be applied on payment page.</span>
+                    <button class="cart-proceed-text">
+                            <span>Proceed to Checkout</span>
+                            <span> Rs.187 <i class='fas fa-arrow-right'></i></span>
+                    </button>
                   </footer>
                 </div>
               </div>
               <div id="cart-empty-container">
               
                 <div class="w3-card-4 card-1">
-                  <header class="cart-w3-container w3-cart-white">
+                  <header class="cart-w3-container cart-card-title">
                     <h5>My Cart</h5>
                   </header>
               
-                  <div class="cart-w3-container">
+                  <div class="cart-w3-container cart-mid-title">
                     <p>No items in your cart.</p>
                     <span>Your favorite item are just a click away.</span>
                   </div>
-                  <footer class="cart-w3-container w3-blue">
-                    <h5 onclick="proceedToBuy()">Proceed to Checkout</h5>
-                    <i class='fas fa-arrow-right'></i>
+                  <footer class=" cart-footer-text cart-w3-container ">
+                    <h5 onclick="startShop()">Start Shopping</h5>
                   </footer>
                 </div>
               </div>
@@ -91,6 +102,8 @@
         </section>
 </main>
 <script src="../js/cart.js"></script>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 </body>
 
 </html>

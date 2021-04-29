@@ -1,21 +1,43 @@
 const PRODUCTS_END_POINT = "http://localhost:5000/products";
 
+// MAPPING
+const PRODUCT_KEYS = {
+  "fruit":"5b6899953d1a866534f516e2",
+
+};
+
+
 let dataNew = [];
-fruits = [];
-bakery = [];
-beverages = [];
-beauty = [];
-baby = [];
-outputData = [];
+let fruits = [];
+let bakery = [];
+let beverages = [];
+let beauty = [];
+let baby = [];
+let outputData = [];
 let renderedValues = [];
+let quantity = 1;
+let cartValues = [];
+
+async function getProducts(value) {
+  return (await (await fetch(PRODUCTS_END_POINT)).json());
+}
+
 getRenderedValues = (value) => {
   fetch(PRODUCTS_END_POINT)
     .then((response) => {
       return response.json();
-    }).catch(() => {
-       alert('server is not running please run server first with `npm start`')
+    })
+    .catch(() => {
+      alert("server is not running please run server first with `npm start`");
     })
     .then((data) => {
+      dataNew = [];
+      fruits = [];
+      bakery = [];
+      beverages = [];
+      beauty = [];
+      baby = [];
+      outputData = [];
       renderedValues = data;
       data.forEach((val) => {
         switch (val.category) {
@@ -60,11 +82,25 @@ getRenderedValues = (value) => {
     });
 };
 
+gatCurrentValue = ()=>{}
+
+
 productInterface = () => {
-  document.getElementById('cartModal').style.display = "none";
-  document.getElementById('emptyCart').style.display = "none";
-  let itemNumber = localStorage.getItem('productNumbers')
-  document.getElementById('items').innerHTML = (itemNumber === null ? 0 : itemNumber) + ' items';
+  document.getElementById("cartModal").style.display = "none";
+  document.getElementById("emptyCart").style.display = "none";
+  let itemNumber = localStorage.getItem("productNumbers");
+  document.getElementById("items").innerHTML =
+    (itemNumber === null ? 0 : itemNumber) + " items";
+    
+
+    // const selectedValue = gatCurrentValue();
+    // getRenderedValues().then((data)=>{
+    //   const dataToRender = data.filter(d=>d.category === PRODUCT_KEYS[selectedValue])
+
+
+
+    // })
+
   for (let i in outputData) {
     dataNew.push(outputData[i]);
     let products = document.createElement("div");
@@ -74,7 +110,6 @@ productInterface = () => {
       MRP Rs ${dataNew[i].price}</span><button onclick="addToCart('${dataNew[i].sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
       Buy Now</button></footer></div></div>`;
     document.getElementById("own-products").appendChild(products);
-    
   }
 };
 myFunction = () => {
@@ -86,6 +121,12 @@ myFunction = () => {
   }
 };
 
+resizeWindow = () => {
+  if (document.body.clientWidth < 500)
+    window.location.href = "http://127.0.0.1:5500/views/cart.html#";
+  else getCartData();
+};
+
 goToLink = (value) => {
   getRenderedValues(value);
   localStorage.setItem("productType", value);
@@ -94,23 +135,23 @@ goToLink = (value) => {
 
 addToCart = (selectedItemName) => {
   let data = JSON.parse(localStorage.getItem("productId"));
-   (function() {
-  if(data === null) {
-    data = data ? data.split(",") : [];
-    data.push(selectedItemName);
-    localStorage.setItem("productId", JSON.stringify(data));
-    document.getElementById('itemNotExist').style.display = "block";
-  } else {
-    if(!data.includes(selectedItemName)) {
+  (function () {
+    if (data === null) {
+      data = data ? data.split(",") : [];
       data.push(selectedItemName);
       localStorage.setItem("productId", JSON.stringify(data));
-      document.getElementById('itemNotExist').style.display = "block";
+      document.getElementById("itemNotExist").style.display = "block";
+    } else {
+      if (!data.includes(selectedItemName)) {
+        data.push(selectedItemName);
+        localStorage.setItem("productId", JSON.stringify(data));
+        document.getElementById("itemNotExist").style.display = "block";
+      } else document.getElementById("itemExist").style.display = "block";
     }
-    else document.getElementById('itemExist').style.display = "block";
-}
-localStorage.setItem('productNumbers' , (data === null ? 0 : data.length))
-document.getElementById('items').innerHTML = (data === null ? 0 : data.length) + ' items';
-})();
+    localStorage.setItem("productNumbers", data === null ? 0 : data.length);
+    document.getElementById("items").innerHTML =
+      (data === null ? 0 : data.length) + " items";
+  })();
 };
 getProductList = (getRenderedValues) => {
   let productType = localStorage.getItem("productItem")
@@ -119,18 +160,88 @@ getProductList = (getRenderedValues) => {
   getRenderedValues(productType);
 };
 
-closeModal = () => {
-   $('#itemNotExist').hide();
-   $('#itemExist').hide();
-}
-window.onclick = function(event) {
-  if (event.target == document.getElementById('itemExist') || event.target == document.getElementById('itemNotExist')) {
-    $('#itemNotExist').hide();
-    $('#itemExist').hide();
+getCartData = () => {
+  productId = JSON.parse(localStorage.getItem("productId"));
+  if (productId !== null) {
+    cartValues = [];
+    renderedValues.filter((val) => {
+      productId.forEach((data) => {
+        if (val.sku === data) {
+          cartValues.push(val);
+        }
+      });
+    });
+    cartInterface(cartValues, productId.length);
+  } else {
+    emptyCartInterface();
   }
-}
+};
+emptyCartInterface = () => {
+  document.getElementById("emptyCart").style.display = "block";
+};
 
+cartInterface = (cartValues, itemNumber) => {
+  dataNew = [];
+  for (let i in cartValues) {
+    dataNew.push(cartValues[i]);
+    let cartElement = document.createElement("card");
+    cartElement.className = "cart-element";
+    cartElement.innerHTML = `<img id="imgg" src="${dataNew[i].imageURL}" alt="cart-images" height="100px">
+                <div> <h4 class="modal-text">${dataNew[i].name}</h4> <i onclick="increaseItems('${quantity}', '${dataNew[i].price}')" class="fa fa-plus cart-icon-class"></i>
+                    <input class="itemQuantity" value="${quantity}" disabled/>
+                    <i onclick="decreaseItems('${quantity}', '${dataNew[i].price}')" class="fa fa-minus cart-icon-class"></i>
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                    <span>Rs. </span><span id="price">${dataNew[i].price} </span>
+                    <div class="total-cart-cost">
+                        <span>Total: Rs. </span><span class="priceNew">${dataNew[i].price} </span>
+                    </div>`;
+    document.querySelector(".items").appendChild(cartElement);
+    cartItemInterface(itemNumber);
+    document.getElementById("cartModal").style.display = "block";
+  }
+};
+cartItemInterface = (itemNumber) => {
+  document.querySelector(
+    ".modal-header"
+  ).innerHTML = `My Cart (${itemNumber} items) <span onclick="deleteCartData()"><i class="fa fa-trash " ></i></span>`;
+};
+increaseItems = (quantity, price) => {
+  document.querySelector(".itemQuantity").value = ++quantity;
+  document.querySelector(".priceNew").innerHTML = price * quantity;
+};
+decreaseItems = (selectedItem) => {
+  document.querySelector(".itemQuantity").value = --quantity;
+  document.querySelector(".priceNew").innerHTML = price * quantity;
+};
+
+deleteCartData = () => {
+  localStorage.clear();
+  closeCartModal();
+  window.location.reload();
+};
+closeCartModal = () => {
+  $(".items").empty();
+  document.getElementById("cartModal").style.display = "none";
+  document.getElementById("emptyCart").style.display = "none";
+};
+closeModal = () => {
+  $("#itemNotExist").hide();
+  $("#itemExist").hide();
+};
+window.onclick = function (event) {
+  if (
+    event.target == document.getElementById("itemExist") ||
+    event.target == document.getElementById("itemNotExist")
+  ) {
+    $("#itemNotExist").hide();
+    $("#itemExist").hide();
+  }
+  if (
+    event.target == document.getElementById("cartModal") ||
+    event.target == document.getElementById("emptyCart")
+  ) {
+    closeCartModal();
+  }
+};
 
 getProductList(getRenderedValues);
-
-
