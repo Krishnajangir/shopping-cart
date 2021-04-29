@@ -11,7 +11,7 @@
     <title>Shopping Cart</title>
 </head>
 
-<body>
+<body onresize="resizeCartWindow()">
     <!-- <object type="text/html" data="/home.html"></object> -->
     <main>
         <heading>
@@ -23,10 +23,10 @@
                 </div>
                 <div class="mid-box">
                     <a href="./home.html">
-                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item" >Home</span>
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
                     </a>
                     <a href="./products.html">
-                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item" >Products</span>
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
                     </a>
                 </div>
                 <div class="last-box">
@@ -36,9 +36,9 @@
                     <a href="./register.html">
                         <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
                     </a>
-                    <div class="cart" onclick="resizeWindow()"> <a href="#" >
-                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span
-                                id="items"></span>
+                    <div class="cart" onclick="goToCartPage()">
+                        <a href="#">
+                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span id="items"></span>
                         </a>
                     </div>
                 </div>
@@ -46,47 +46,46 @@
         </heading>
         <section class="side-nav">
             <div class="topnav">
-                <a class="active" onclick="goToLink('fruit')" >Fruits And Vegetables</a>
+                <a class="active link" onclick="goToLink('fruit')">Fruits And Vegetables</a>
 
                 <!-- Navigation links (hidden by default) -->
                 <div id="myLinks">
-                    <a onclick="goToLink('bakeries')">Bakery Cakes And Dairy</a>
-                    <a onclick="goToLink('beverage')">Beverages</a>
-                    <a onclick="goToLink('beauties')">Beauty And Hygiene</a>
-                    <a onclick="goToLink('babies')">Baby Care</a>
+                    <a class="link" onclick="goToLink('bakeries')">Bakery Cakes And Dairy</a>
+                    <a class="link" onclick="goToLink('beverage')">Beverages</a>
+                    <a class="link" onclick="goToLink('beauties')">Beauty And Hygiene</a>
+                    <a class="link" onclick="goToLink('babies')">Baby Care</a>
                 </div>
                 <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <a href="javascript:void(0);" class="icon" onclick="changeLinkItem()">
                     <i class="arrow down"></i>
                 </a>
             </div>
             <div id="own-products">
             </div>
         </section>
-        
+
         <!-- modal -->
         <section>
             <div id="itemExist" class="modal">
                 <div class="modal-content">
-                  <span class="close" onclick="closeModal()">&times;</span>
-                  <h4>Item is Already in the cart.</h4>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h4>Item is Already in the cart.</h4>
                 </div>
-              </div>
-              <div id="itemNotExist" class="modal">
+            </div>
+            <div id="itemNotExist" class="modal">
                 <div class="modal-content">
-                  <span class="close" onclick="closeModal()">&times;</span>
-                  <h4>Item Added to cart successfully.</h4>
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h4>Item Added to cart successfully.</h4>
                 </div>
-              </div>
+            </div>
         </section>
         <!-- cart modal -->
         <section>
-                <div id="cartModal" class="w3-modal">
-                  <div class="w3-modal-content cart-full-content">
-                    <header class="w3-container w3-header"> 
-                      <span onclick="closeCartModal()" 
-                      class="w3-button w3-display-topright">&times;</span>
-                      <h5 class="modal-header"></h5>
+            <div id="cartModal" class="w3-modal">
+                <div class="w3-modal-content cart-full-content">
+                    <header class="w3-container w3-header">
+                        <span onclick="closeCartModal()" class="w3-button w3-display-topright">&times;</span>
+                        <h5 class="modal-header"></h5>
                     </header>
                     <div class="w3-container items">
                     </div>
@@ -100,42 +99,42 @@
                     </div>
                     <div class="model-content-footer">
                         <span class="modal-footer-span">Promo code can be applied on payment page.</span>
-                        <button class="model-content-footer-button">
+                        <button class="model-content-footer-button" onclick="proceedToBuy()">
                                 <span>Proceed to Checkout</span>
                                 <span> Rs.187 <i class='fas fa-arrow-right'></i></span>
                         </button>
                     </div>
-                  </div>
                 </div>
-                <div id="emptyCart" class="w3-modal">
-                    <div class="w3-modal-content empty-modal-content">
-                      <header class="w3-container w3-header"> 
-                        <span onclick="document.getElementById('emptyCart').style.display='none'" 
-                        class="w3-button w3-display-topright">&times;</span>
+            </div>
+            <div id="emptyCart" class="w3-modal">
+                <div class="w3-modal-content empty-modal-content">
+                    <header class="w3-container w3-header">
+                        <span onclick="document.getElementById('emptyCart').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                         <h5 class="modal-header">My Cart</h5>
-                      </header>
-                      <div class="empty-content">
-                          <div class="model-empty-content">
-                              <p>No items in your cart.</p>
-                              <span>Your favorite item are just a click away.</span>
-                          </div>
-                      </div>
-                      <div class="model-content-footer">
-                          <button class="model-content-footer-button">
+                    </header>
+                    <div class="empty-content">
+                        <div class="model-empty-content">
+                            <p>No items in your cart.</p>
+                            <span>Your favorite item are just a click away.</span>
+                        </div>
+                    </div>
+                    <div class="model-content-footer">
+                        <button class="model-content-footer-button">
                                   <span>Start Shopping</span>
                           </button>
-                      </div>
                     </div>
-                  </div>
+                </div>
+            </div>
         </section>
         <footer class="own-footer">
             <div class="footer-text">Copyright &copy; Sabka Bazaar Grocery Supplies Pvt Ltd
             </div>
         </footer>
     </main>
+    <script src="../js/common.js"></script>
+    <script src="../js/constants.js"></script>
     <script src="../js/products.js"></script>
-
-<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 
 </html>

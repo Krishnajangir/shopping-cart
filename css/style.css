@@ -45,7 +45,8 @@
   padding: 3%;
   text-align: center; }
 
-.w3-cart-white, .w3-hover-white:hover {
+.w3-cart-white,
+.w3-hover-white:hover {
   background-color: #ba68c8 !important; }
 
 .card-2 {
@@ -172,7 +173,7 @@
 
 .cart-data-list {
   overflow-y: scroll;
-  height: 13em; }
+  height: 22em; }
   .cart-data-list .items {
     overflow-y: auto !important; }
 
@@ -200,9 +201,9 @@
   display: flex;
   box-shadow: 0px 0px 3px 0px #80808069; }
 
-@media only screen and (min-width: 300px) and (max-width: 375px) {
+@media only screen and (max-width: 360px) {
   .cart-mid-title {
-    margin-bottom: 13em;
+    margin-bottom: 16em;
     position: relative;
     top: 8em;
     right: 2em; }
@@ -211,9 +212,9 @@
     bottom: 4em;
     left: 4em; } }
 
-@media only screen and (min-width: 375px) and (max-width: 500px) {
+@media only screen and (min-width: 365px) and (max-width: 411px) {
   .cart-mid-title {
-    margin-bottom: 25em;
+    margin-bottom: 21em;
     position: relative;
     top: 8em;
     right: 2em; }
@@ -419,6 +420,9 @@
   padding: 10px;
   width: 300em; }
 
+.active-link {
+  background-color: #b6b2b2; }
+
 .topnav {
   overflow: hidden;
   background-color: #8080801a;
@@ -436,11 +440,14 @@
     font-size: 17px;
     display: block;
     cursor: pointer; }
+  .topnav a:active {
+    background-color: green; }
   .topnav a:hover {
     color: black;
     background-color: #c50c72; }
 
-.active, #myLinks a {
+.active,
+#myLinks a {
   border-bottom: 1px solid grey; }
 
 .total-cart-cost {
@@ -566,7 +573,8 @@
     padding: 4%;
     background-color: #c50c72; }
 
-.w3-container, .w3-panel {
+.w3-container,
+.w3-panel {
   padding: 0.01em 5px !important; }
 
 .icon-class {
@@ -633,6 +641,8 @@
   display: flex;
   box-shadow: 0px 1px 2px 1px #80808069;
   margin: 1%; }
+  .cart-element i {
+    cursor: pointer; }
 
 .items {
   overflow-y: scroll;

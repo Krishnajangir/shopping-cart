@@ -1,104 +1,93 @@
-const CATEGORIES_END_POINT = "http://localhost:5000/categories";
-const BANNERS_END_POINT = "http://localhost:5000/banners";
+let slideIndex = 1;
 
-let dataNew = [];
-let homeDetails;
-let productItem;
 
-getProductCategories = () => {
-  fetch(CATEGORIES_END_POINT)
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      categoriesDivision(data);
-    }).catch(() => {
-      alert('server is not running please run server first with `npm start`')
-   })
-};
-
-categoriesDivision = (categories) => {
-  for (let i in categories) {
-    if (!categories[i].imageUrl) {
-      categories.splice(i - 1, 1);
-    }
-    dataNew.push(categories[i]);
-    let badge = document.createElement("div");
-    badge.className = "badge";
-    if(i % 2 === 0) {
-      badge.innerHTML =
-      `<div class="w3-panel w3-card" style="display:flex;">
-      <img class="odd-img" src='${dataNew[i].imageUrl}' height="30%" width="30%"/>
-      <div class="own-cat-info"><h1>
-      ${dataNew[i].name}</h1><p>
-      ${dataNew[i].description} </p><button  onclick='goToProductsList("${dataNew[i].key}")' id='explore'>
-      Explore 
-      ${dataNew[i].key}
-      </button></div></div><div class='gred-shadow'></div>`;
-    }
-   else {
-    badge.innerHTML =
-    `<div class="w3-panel w3-card" style="display:flex;">
-    <div class="own-cat-info even-text"><h1>
-    ${dataNew[i].name}</h1><p>
-    ${dataNew[i].description} </p><button  onclick='goToProductsList("${dataNew[i].key}")' id='explore'>
-    Explore 
-    ${dataNew[i].key}
-    </button></div>  <img class="even-img" src='${dataNew[i].imageUrl}' height="30%" width="30%"/></div><div class='gred-shadow'></div>`;
-   }
-     document.getElementById("own-cat").appendChild(badge);
-  }
+async function getProductCategories() {
+    return await (await fetch(CATEGORIES_END_POINT)).json()
+        .catch(() => alert('server is not running please run server first with `npm start`'))
 }
 
-var slideIndex = 1;
-showSlides(slideIndex);
+categoriesInterface = (showSlides) => {
+    let homeItems = '';
+    getProductCategories().then((data) => {
+        data.forEach((val, index) => {
+            console.log('index', index)
+            if (!val.imageUrl) {
+                val.imageUrl = '../static/images/fallback-image.png"';
+            }
+            if (index % 2 === 0) {
+                homeItems +=
+                    `<div class="badge">
+                    <div class="w3-panel w3-card" style="display: flex">
+                      <img
+                        class="odd-img"
+                        src="${val.imageUrl}"
+                        height="30%"
+                        width="30%"
+                      />
+                      <div class="own-cat-info">
+                        <h1>${val.name}</h1>
+                        <p>${val.description}</p>
+                        <button onclick='goToProductsList("${val.key}")' id="explore">
+                          Explore ${val.key}
+                        </button>
+                      </div>
+                    </div>
+                    <div class="gred-shadow"></div>
+                  </div>
+                  `;
+            } else {
+                homeItems +=
+                    `<div class="w3-panel w3-card" style="display:flex;">
+                    <div class="own-cat-info even-text">
+                        <h1>
+                            ${val.name}</h1>
+                        <p>
+                            ${val.description} </p><button onclick='goToProductsList("${val.key}")' id='explore'>
+                            Explore
+                            ${val.key}
+                        </button>
+                    </div> <img class="even-img" src='${val.imageUrl}' height="30%" width="30%" />
+                </div>
+                <div class='gred-shadow'></div>
+                </div>`;
+            }
+            document.getElementById("own-cat").innerHTML = homeItems;
+        })
+    })
+    showSlides(slideIndex);
+}
+
 
 function plusSlides(n) {
-  showSlides((slideIndex += n));
+    showSlides((slideIndex += n));
 }
 
 function currentSlide(n) {
-  showSlides((slideIndex = n));
+    showSlides((slideIndex = n));
 }
 
 function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  if (n > slides.length) {
-    slideIndex = 1;
-  }
-  if (n < 1) {
-    slideIndex = slides.length;
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
-  slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
 }
+
 goToProductsList = (text) => {
-  switch(text) {
-    case "fruit-and-veg":
-          productItem = "fruit";
-          break;
-        case "bakery-cakes-dairy":
-          productItem = "bakeries";
-          break;
-        case "beverages":
-          productItem = "beverage";
-          break;
-        case "beauty-hygiene":
-          productItem = "beauties";
-          break;
-        default : 
-          productItem = "babies";
-          break;
-  }
-  localStorage.setItem('productItem' , productItem);
-  window.location.href = "http://127.0.0.1:5500/views/products.html";
+    localStorage.setItem('productType', EXPLORE_TYPE[text]);
+    window.location.href = "http://127.0.0.1:5500/views/products.html";
 }
-getProductCategories()
+
+categoriesInterface(showSlides)

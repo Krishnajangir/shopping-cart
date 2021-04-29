@@ -35,9 +35,9 @@
                     <a href="./register.html">
                         <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
                     </a>
-                    <div class="cart" > <a href="./cart.html">
-                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span
-                                id="items">Items</span>
+                    <div class="cart">
+                        <a href="./cart.html">
+                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span id="items">Items</span>
                         </a>
                     </div>
                 </div>
@@ -46,63 +46,65 @@
 
         <section>
             <div id="mobile-cart-container">
-              
+
                 <div class="w3-card-4 card-1">
-                  <header class="cart-w3-container cart-card-title">
-                    <h5 class="cart-item-header"></h5>
-                  </header>
-              
-                  <div class="cart-w3-container cart-data-list">
-                    <div class="w3-container items">
+                    <header class="cart-w3-container cart-card-title">
+                        <h5 class="cart-item-header"></h5>
+                    </header>
+
+                    <div class="cart-w3-container cart-data-list">
+                        <div class="w3-container items">
+                        </div>
                     </div>
-                  </div>
-                  <div class="model-content">
-                    <div class="model-content-ad-left">
-                        <img src="../static/images/lowest-price.png" alt="lowest price">
+                    <div class="model-content">
+                        <div class="model-content-ad-left">
+                            <img src="../static/images/lowest-price.png" alt="lowest price">
+                        </div>
+                        <div>
+                            <p class="cart-right-text">You won't find it cheaper anywhere</p>
+                        </div>
                     </div>
-                    <div>
-                        <p  class="cart-right-text">You won't find it cheaper anywhere</p>
-                    </div>
-                </div>
-                  <footer class="cart-w3-container model-content-footer">
-                    <span class="modal-footer-span">Promo code can be applied on payment page.</span>
-                    <button class="cart-proceed-text">
+                    <footer class="cart-w3-container model-content-footer">
+                        <span class="modal-footer-span">Promo code can be applied on payment page.</span>
+                        <button class="cart-proceed-text" onclick="proceedToBuy()">
                             <span>Proceed to Checkout</span>
                             <span> Rs.187 <i class='fas fa-arrow-right'></i></span>
                     </button>
-                  </footer>
+                    </footer>
                 </div>
-              </div>
-              <div id="cart-empty-container">
-              
+            </div>
+            <div id="cart-empty-container">
+
                 <div class="w3-card-4 card-1">
-                  <header class="cart-w3-container cart-card-title">
-                    <h5>My Cart</h5>
-                  </header>
-              
-                  <div class="cart-w3-container cart-mid-title">
-                    <p>No items in your cart.</p>
-                    <span>Your favorite item are just a click away.</span>
-                  </div>
-                  <footer class=" cart-footer-text cart-w3-container ">
-                    <h5 onclick="startShop()">Start Shopping</h5>
-                  </footer>
+                    <header class="cart-w3-container cart-card-title">
+                        <h5>My Cart</h5>
+                    </header>
+
+                    <div class="cart-w3-container cart-mid-title">
+                        <p>No items in your cart.</p>
+                        <span>Your favorite item are just a click away.</span>
+                    </div>
+                    <footer class=" cart-footer-text cart-w3-container ">
+                        <h5 onclick="startShop()">Start Shopping</h5>
+                    </footer>
                 </div>
-              </div>
+            </div>
         </section>
         <!-- modal -->
         <section>
-          <div id="thanksMsg" class="modal cart-modal">
-            <div class="modal-content cart-modal-content">
-              <span class="close cart-modal-close" onclick="closeModal()">&times;</span>
-              <img src="../static/thanks.jfif" alt="">
-              <h4>Thankyou for doing shopping with us ,waiting for your next arrival here.</h4>
+            <div id="thanksMsg" class="modal cart-modal">
+                <div class="modal-content cart-modal-content">
+                    <span class="close cart-modal-close" onclick="closeModal()">&times;</span>
+                    <img src="../static/thanks.jfif" alt="">
+                    <h4>Thankyou for doing shopping with us ,waiting for your next arrival here.</h4>
+                </div>
             </div>
-          </div>
         </section>
-</main>
-<script src="../js/cart.js"></script>
-<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    </main>
+    <script src="../js/common.js"></script>
+    <script src="../js/constants.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 
 </body>
 
