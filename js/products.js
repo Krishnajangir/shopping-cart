@@ -12,15 +12,10 @@ getRenderedValues = (value) => {
   fetch(PRODUCTS_END_POINT)
     .then((response) => {
       return response.json();
+    }).catch(() => {
+       alert('server is not running please run server first with `npm start`')
     })
     .then((data) => {
-      dataNew = [];
-      fruits = [];
-      bakery = [];
-      beverages = [];
-      beauty = [];
-      baby = [];
-      outputData = [];
       renderedValues = data;
       data.forEach((val) => {
         switch (val.category) {
@@ -66,15 +61,20 @@ getRenderedValues = (value) => {
 };
 
 productInterface = () => {
-  for (let i = 0; i < outputData.length; i++) {
+  document.getElementById('cartModal').style.display = "none";
+  document.getElementById('emptyCart').style.display = "none";
+  let itemNumber = localStorage.getItem('productNumbers')
+  document.getElementById('items').innerHTML = (itemNumber === null ? 0 : itemNumber) + ' items';
+  for (let i in outputData) {
     dataNew.push(outputData[i]);
     let products = document.createElement("div");
     products.className = "products";
     products.innerHTML = `<div class="w3-card-4"><p>${dataNew[i].name} </p><div class="base-header"><header class="w3-container header w3-white"><img id="image" style="margin: auto;" src='${dataNew[i].imageURL}' height="140px" width="100%"/></header><div class='base-footer'><div class='w3-container text-css'><div class='desc'>
       ${dataNew[i].description}</div></div><footer class='w3-container footer w3-white'><span id='mrp'>
-      MRP Rs ${dataNew[i].price}</span><button onclick="buyNow('${dataNew[i].sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
+      MRP Rs ${dataNew[i].price}</span><button onclick="addToCart('${dataNew[i].sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
       Buy Now</button></footer></div></div>`;
     document.getElementById("own-products").appendChild(products);
+    
   }
 };
 myFunction = () => {
@@ -92,8 +92,9 @@ goToLink = (value) => {
   document.getElementById("own-products").innerHTML = "";
 };
 
-buyNow = (selectedItemName) => {
+addToCart = (selectedItemName) => {
   let data = JSON.parse(localStorage.getItem("productId"));
+   (function() {
   if(data === null) {
     data = data ? data.split(",") : [];
     data.push(selectedItemName);
@@ -107,6 +108,9 @@ buyNow = (selectedItemName) => {
     }
     else document.getElementById('itemExist').style.display = "block";
 }
+localStorage.setItem('productNumbers' , (data === null ? 0 : data.length))
+document.getElementById('items').innerHTML = (data === null ? 0 : data.length) + ' items';
+})();
 };
 getProductList = (getRenderedValues) => {
   let productType = localStorage.getItem("productItem")
@@ -125,6 +129,7 @@ window.onclick = function(event) {
     $('#itemExist').hide();
   }
 }
+
 
 getProductList(getRenderedValues);
 

@@ -17,28 +17,28 @@
         <heading>
             <div class="navbar">
                 <div class="first-box">
-                    <a class="navbar-" href="#">
-                        <img src="../static/images/logo.png" width="100" height="100" alt="cart logo">
+                    <a class="navbar-img" href="#">
+                        <img src="../static/images/logo.png" width="120" height="80" alt="cart logo">
                     </a>
                 </div>
                 <div class="mid-box">
                     <a href="./home.html">
-                        <span class="navbar-brand mb-0 h1">Home</span>
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item" >Home</span>
                     </a>
                     <a href="./products.html">
-                        <span class="navbar-brand mb-0 h1">Products</span>
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item" >Products</span>
                     </a>
                 </div>
                 <div class="last-box">
                     <a href="./signIn.html">
-                        <span class="navbar-brand mb-0 h1">SignIn</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
                     </a>
                     <a href="./register.html">
-                        <span class="navbar-brand mb-0 h1">Register</span>
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
                     </a>
                     <div class="cart" onclick="getCartData()"> <a href="#" >
                             <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span
-                                id="items">Items</span>
+                                id="items"></span>
                         </a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
         </heading>
         <section class="side-nav">
             <div class="topnav">
-                <a class="active" onclick="goToLink('fruit')">Fruits And Vegetables</a>
+                <a class="active" onclick="goToLink('fruit')" >Fruits And Vegetables</a>
 
                 <!-- Navigation links (hidden by default) -->
                 <div id="myLinks">
@@ -82,9 +82,9 @@
         <!-- cart modal -->
         <section>
                 <div id="cartModal" class="w3-modal">
-                  <div class="w3-modal-content">
+                  <div class="w3-modal-content cart-full-content">
                     <header class="w3-container w3-header"> 
-                      <span onclick="document.getElementById('cartModal').style.display='none'" 
+                      <span onclick="closeCartModal()" 
                       class="w3-button w3-display-topright">&times;</span>
                       <h5 class="modal-header"></h5>
                     </header>
@@ -108,7 +108,7 @@
                   </div>
                 </div>
                 <div id="emptyCart" class="w3-modal">
-                    <div class="w3-modal-content">
+                    <div class="w3-modal-content empty-modal-content">
                       <header class="w3-container w3-header"> 
                         <span onclick="document.getElementById('emptyCart').style.display='none'" 
                         class="w3-button w3-display-topright">&times;</span>

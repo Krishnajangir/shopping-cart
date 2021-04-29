@@ -1,17 +1,68 @@
-#own-products {
+
+@mixin  products-main-class {
   display: inline-grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
   background-color: white;
+}
+@mixin top-navbar {
+  overflow: hidden;
+  background-color: #8080801a;
+  position: relative;
+  width: 100vw;
+}
+@mixin flex-property {
+  display: flex;
+}
+@mixin btn-property {
+  cursor: pointer;
+}
+@mixin modal-prop {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+@mixin img-prop {
+  width: 12em;
+      height: 17em;
+}
+@mixin text-prop {
+  display: inline-block;
+    background-color: #80808026;
+    margin: 3%;
+    overflow: hidden;
+    text-overflow: clip;
+    height: 8em;
+}
+@mixin footer-prop {
+  justify-content: space-evenly;
+  position: relative;
+  font-size: 20px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+@mixin span-prop {
+  padding-left: 20%;
+  font-size: 16px;
+}
+@mixin product-footer {
+  background-color: rgb(173, 73, 90);
+  padding: 28px;
+  margin-bottom: 22px;
+}
+@mixin footer-btn {
+  width: 100%;
+    position: relative;
+    color: white;
+}
+#own-products {
+  @include products-main-class;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
   padding: 10px;
   width: 300em;
 }
 
 .topnav {
-  overflow: hidden;
-  background-color: #8080801a;
-  position: relative;
-  width: 100vw;
+  @include top-navbar;
 
   a:active {
     background: red;
@@ -28,67 +79,56 @@
     text-decoration: none;
     font-size: 17px;
     display: block;
-    cursor: pointer;
+    @include btn-property;
+  }
+  a:hover {
+    color: black;
+    background-color: #c50c72;
   }
 }
 
 .active, #myLinks a {
   border-bottom: 1px solid grey;
 }
-
-.topnav a:hover {
-  color: black;
-  background-color: rgb(158, 98, 98);
+.total-cart-cost {
+    font-weight: 600;
+    padding: 5%;
 }
 
 .side-nav {
-  display: flex;
+  @include flex-property;
   margin: 0 9% 0 9%;
 }
 
 .own-footer {
   background-color: #8080801a;
-  display: flex;
+  @include flex-property;
   justify-content: space-between;
+}
+.fa-trash {
+  @include btn-property;
 }
 
 .footer-text {
   font-size: 11px;
   margin: 1%;
   font-weight: bolder;
-  font-family: sans-serif;
   position: relative;
   left: 7%;
 }
 
 .modal {
   display: none;
-
-  /* Hidden by default */
   position: fixed;
-
-  /* Stay in place */
   z-index: 1;
-
-  /* Sit on top */
   padding-top: 100px;
-
-  /* Location of the box */
   left: 30%;
   top: 0;
   width: 50%;
-
-  /* Full width */
   height: 100%;
-
-  /* Full height */
   overflow: auto;
-
-  /* Enable scroll if needed */
-  /* background-color: rgb(207, 203, 203); Fallback color */
 }
 
-/* Modal Content */
 
 .modal-content {
   position: relative;
@@ -104,7 +144,6 @@
   animation-duration: 0.4s;
 }
 
-/* Add Animation */
 @-webkit-keyframes animatetop {
   from {
     top: -300px;
@@ -140,14 +179,12 @@
   &:hover, &:focus {
     color: #000;
     text-decoration: none;
-    cursor: pointer;
+    @include btn-property;
   }
 }
 
 .modal-header {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+ @include modal-prop;
 }
 
 .modal-body {
@@ -155,7 +192,7 @@
 
   .body-img {
     box-shadow: 1px 2px 12px 1px #8080802b;
-    display: flex;
+    @include flex-property;
 
     span {
       position: relative;
@@ -167,7 +204,7 @@
 
   .body-content {
     box-shadow: 1px 2px 12px 1px #8080802b;
-    display: flex;
+    @include flex-property;
     margin: 2% 0% 5% 0%;
 
     span {
@@ -186,9 +223,7 @@
 }
 
 .modal-footer {
-  padding: 2px 16px;
-  background-color: #5cb85c;
-  color: white;
+ @include modal-prop;
 
   p {
     color: black;
@@ -202,16 +237,26 @@
 
 .footer {
   width: 100%;
-  background-color: rgb(173, 73, 90);
+  background-color: #c50c72;
   margin-bottom: 22px;
 
   span {
     text-align: center;
   }
+  button {
+    width: 7em;
+    padding: 4%;
+    background-color: #c50c72;
+  }
 }
 
+.w3-container, .w3-panel {
+  padding: 0.01em 5px !important;
+}
+
+
 .icon-class {
-  background-color: #8e24aadb;
+  background-color: #c50c72;
   padding: 2%;
   color: white;
 }
@@ -242,15 +287,7 @@
   overflow: auto;
   background-color: white;
 }
-@media only screen and (max-width: 1100px) {
-  #own-products {
-    display: inline-grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5px;
-    background-color: white;
-    padding: 10px;
-  }
-}
+
 .empty-content {
   text-align: center;
   margin-top: 8em;
@@ -269,7 +306,6 @@
   font-size: 15px;
   margin: 1% 1% 7% 1%;
   text-align: left;
-  font-family: auto;
   height: 10%;
   font-weight: bolder;
   margin: 4%;
@@ -278,14 +314,12 @@
 .text-css {
   display: inline-block;
   font-size: 11px;
-  font-weight: 600;
-  font-family: serif;
-  background-color: #80808026;
-  margin: 10%;
-  height: 100px;
+  font-weight: 500;
+  background-color: rgba(128, 128, 128, 0.15);
+  margin: 5%;
+  height: 8em;
   overflow: hidden;
   text-overflow: clip;
-  white-space: break-spaces;
 
   p {
     width: fit-content;
@@ -294,14 +328,14 @@
 }
 
 .cart-element {
-  display: flex;
+  @include flex-property;
   box-shadow: 0px 1px 2px 1px #80808069;
   margin: 1%;
 }
 .items {
   overflow-y: scroll;
   margin: 3%;
-  height: 12em;
+  height: 20em;
 }
 .w3-header {
   color: #fff!important;
@@ -309,12 +343,12 @@
   height: 4em;
 }
 .model-content {
-  display: flex;
+  @include flex-property;
     margin: 6%;
     box-shadow: 1px 1px 3px 1px #80808047;
 }
 .model-content-footer {
-  display: flex;
+  @include flex-property;
   flex-direction: column;
 }
 .modal-text {
@@ -327,16 +361,18 @@
   top: 0em;
 }
 .model-content-footer-button {
-  display: flex;
+  @include flex-property;
     border: none;
     margin: 2%;
     height: 3em;
-    background-color: #9c27b0db;
+    background-color: #c50c72;
     justify-content: space-between;
     color: white;
+    @include btn-property;
 }
 .model-content-footer-button span {
   padding:2%;
+  margin: auto;
 }
 .modal-footer-span{
     text-align: center;
@@ -347,22 +383,25 @@
   width: 10%;
 }
 .footer {
-  display: flex;
+  @include flex-property;
   justify-content: space-between;
   padding-bottom: 4%;
 
   span {
-    font-size: 87%;
-    padding-right: 15%;
-    font-size: 87%;
-    padding-right: 15%;
-    margin-top: 4%;
+    font-size: 10px;
+    padding-right: 7%;
+    margin-top: 9%;
   }
 }
-.w3-modal-content {
+.cart-full-content{
   width: 30em!important;
   left: 20%!important;
-  height: 30em!important;
+  height: 40em!important;
+}
+.empty-modal-content {
+  width: 30em !important;
+  left: 20% !important;
+  height: 30em !important;
 }
 .w3-card-4 {
   height: 100%;
@@ -397,35 +436,29 @@
   padding: 1%;
 }
 
-@media only screen and (max-width: 768px) {
-  .text-css {
-    display: inline-block;
-    font-family: serif;
-    background-color: #80808026;
-    margin: 10%;
-    overflow: hidden;
-    text-overflow: clip;
-    height: 56%;
-    width: 83%;
+@media only screen and (max-width: 700px) {
+  .cart-full-content {
+    left: 0% !important;
   }
-
+  .empty-modal-content {
+    left: 0% !important;
+  }
+  .text-css {
+    @include text-prop;
+}
   .footer {
-    display: flex;
-    justify-content: space-evenly;
-    position: relative;
-    font-size: 20px;
-    flex-wrap: wrap;
-    flex-direction: column;
+    @include flex-property;
+    @include footer-prop;
   }
 
   .side-nav {
-    display: flex;
+    @include flex-property;
     flex-wrap: wrap;
     margin: 0;
   }
 
   .base-footer {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
@@ -433,8 +466,7 @@
     position: relative;
 
     img {
-      width: 12em;
-      height: 17em;
+      @include img-prop;
     }
   }
 
@@ -446,8 +478,7 @@
     }
 
     span {
-      padding-left: 20%;
-      font-size: 16px;
+      @include span-prop;
     }
   }
 
@@ -456,32 +487,35 @@
   }
 
   .w3-card-4 {
-    display: flex;
+    @include flex-property;
     flex-direction: column;
   }
 
   .base-header {
-    display: flex;
+    @include flex-property;
+    margin-top: 2em;
+
   }
 
   #own-products {
-    display: inline-grid;
+    @include products-main-class;
     grid-template-columns: repeat(1, 1fr);
-    background-color: white;
     padding: 10px;
   }
 
   .footer {
-    background-color: rgb(173, 73, 90);
-    padding: 28px;
-    margin-bottom: 22px;
+    @include product-footer;
   }
-
+  .footer button {
+    @include footer-btn;
+  }
+  .items {
+    overflow-y: scroll;
+    margin: 3%;
+    height: 20em;
+  }
   .topnav {
-    overflow: hidden;
-    background-color: #8080801a;
-    position: relative;
-    width: 100%;
+   @include top-navbar;
 
     a {
       color: rgb(77, 75, 75);
@@ -489,7 +523,8 @@
       text-decoration: none;
       font-size: 17px;
       display: block;
-
+      font-weight: 400;
+      
       &.icon {
         background: rgb(194, 85, 103);
         display: block;
@@ -584,7 +619,7 @@
   padding: 20px;
   border: 1px solid #888;
   width: 50%;
-  height: 6em;
+  height: 10em;
 }
 
 /* The Close Button */
@@ -598,14 +633,120 @@
   &:hover, &:focus {
     color: #000;
     text-decoration: none;
-    cursor: pointer;
+    @include btn-property;
   }
 }
-
-@media only screen and (max-width:1024px) {
-  .w3-modal-content {
-    width: 30em !important;
-    left: 0% !important;
-    height: 30em !important;
+#item-header {
+  position: relative;
+  bottom: 25%;
 }
+
+@media only screen and (min-width : 700px) 
+and (max-width : 1024px)   {
+  .empty-content {
+    text-align: center;
+    margin-top: 8em;
+    margin-bottom: 20em;
+  }
+  .footer-text {
+    font-size: 11px;
+    margin: 1%;
+    font-weight: bolder;
+    position: relative;
+    left: 0%;
+  }
+  #item-header {
+    position: relative;
+    bottom: 0%;
+}
+  .side-nav {
+    @include flex-property;
+    margin: 0%;
+  }
+  .cart-full-content {
+    width: 30em !important;
+    left: 14% !important;
+    top: 4%;
+    height: 40em !important;
+}
+.empty-modal-content {
+     width: 30em !important;
+    left: 14% !important;
+    top: 4%;
+    height: 40em !important;
+}
+  #own-products {
+    @include products-main-class;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 5px;
+    padding: 10px;
+  }
+  #myLinks {
+    display: block;
+  }
+  .text-css {
+    @include text-prop;
+}
+  .footer {
+    @include flex-property;
+    @include footer-prop;
+  }
+  .footer {
+    @include product-footer;
+  }
+  .footer button {
+    @include footer-btn;
+  }
+  .base-footer {
+    @include flex-property;
+    flex-direction: column;
+  }
+
+  .header {
+    position: relative;
+
+    img {
+      @include img-prop;
+    }
+  }
+  .w3-card-4 {
+    p {
+      font-weight: bolder;
+      font-size: 18px;
+      margin: 2%;
+    }
+
+    span {
+      @include span-prop;
+    }
+  }
+
+  .desc {
+    padding: 1%;
+  }
+
+  .w3-card-4 {
+    @include flex-property;
+    flex-direction: column;
+  }
+
+  .base-header {
+    @include flex-property;
+    margin-top: 2em;
+
+  }
+
+
+}
+@media only screen and (min-width: 1100px) {
+  #own-products {
+    @include products-main-class;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 10px;
+    width: 300em;
+  }
+  .w3-card-4 p {
+    font-size: 13px;
+  }
 }
