@@ -987,7 +987,8 @@
   .w3-card-4 p {
     font-size: 13px; } }
 
-.container-fluid, .flex-container {
+.container-fluid,
+.flex-container {
   display: flex; }
 
 .own-text {
@@ -1025,7 +1026,8 @@
     color: grey;
     pointer-events: none;
     transition: .5s; }
-  .login-box .user-box input:focus ~ label, .login-box .user-box input:valid ~ label {
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
     top: -20px;
     left: 0;
     color: #03e9f4;
@@ -1066,7 +1068,8 @@
   padding-top: 8px;
   box-shadow: none !important; }
 
-.w3-white, .w3-hover-white:hover {
+.w3-white,
+.w3-hover-white:hover {
   background-color: #fff0 !important; }
 
 .sign-container {
@@ -1077,6 +1080,14 @@
 
 .navbar span {
   color: black; }
+
+@media only screen and (max-width: 500px) {
+  .login-box {
+    position: relative;
+    right: 2em; }
+  .register-prop {
+    position: relative;
+    right: 4em; } }
 
 * {
   box-sizing: border-box; }

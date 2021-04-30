@@ -1,118 +1,125 @@
-.container-fluid, .flex-container {
-  display: flex;
+.container-fluid,
+.flex-container {
+    display: flex;
 }
 
 .own-text {
-  display: flex;
-  flex-direction: column;
-
-  p {
-    font-size: 13px;
-    font-weight: 500;
-  }
+    display: flex;
+    flex-direction: column;
+    p {
+        font-size: 13px;
+        font-weight: 500;
+    }
 }
 
 .login-box {
-  h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-  }
-
-  .user-box {
-    position: relative;
-    width: 150%;
-
-    input {
-      width: 100%;
-      padding: 10px 0;
-      font-size: 16px;
-      color: black;
-      margin-bottom: 30px;
-      border: none;
-      border-bottom: 1px solid grey;
-      outline: none;
-      background: transparent;
+    h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
     }
-
-    label {
-      position: absolute;
-      top: 0;
-      left: 0;
-      padding: 10px 0;
-      font-size: 12px;
-      color: grey;
-      pointer-events: none;
-      transition: .5s;
+    .user-box {
+        position: relative;
+        width: 150%;
+        input {
+            width: 100%;
+            padding: 10px 0;
+            font-size: 16px;
+            color: black;
+            margin-bottom: 30px;
+            border: none;
+            border-bottom: 1px solid grey;
+            outline: none;
+            background: transparent;
+        }
+        label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 10px 0;
+            font-size: 12px;
+            color: grey;
+            pointer-events: none;
+            transition: .5s;
+        }
+        input {
+            &:focus~label,
+            &:valid~label {
+                top: -20px;
+                left: 0;
+                color: #03e9f4;
+                font-size: 12px;
+            }
+            &:focus~input {
+                border-bottom: 1px solid #03e9f4;
+            }
+        }
     }
-
-    input {
-      &:focus ~ label, &:valid ~ label {
-        top: -20px;
-        left: 0;
-        color: #03e9f4;
-        font-size: 12px;
-      }
-
-      &:focus ~ input {
-        border-bottom: 1px solid #03e9f4;
-      }
+    .btn {
+        background-color: #c50c72;
+        margin-bottom: 2em;
+        color: white;
+        text-align: center;
+        padding: 8px 18px;
+        font-size: 14px;
+        text-decoration: none;
+        cursor: pointer;
     }
-  }
-
-  .btn {
-    background-color: #c50c72;
-    margin-bottom: 2em;
-    color: white;
-    text-align: center;
-    padding: 8px 18px;
-    font-size: 14px;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  a {
-    &:hover {
-      background: #03e9f4;
-      color: #fff;
-      border-radius: 5px;
-      box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+    a {
+        &:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4, 0 0 100px #03e9f4;
+        }
     }
-
-  }
 }
 
 .signIn-footer {
-  background-color: #8080801a;
-  display: flex;
+    background-color: #8080801a;
+    display: flex;
 }
 
 .signIn-text {
-  font-size: 11px;
-  margin: auto;
-  font-weight: bolder;
-  padding: 11px;
+    font-size: 11px;
+    margin: auto;
+    font-weight: bolder;
+    padding: 11px;
 }
 
 .signIn-card {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  padding-top: 8px;
-  box-shadow: none !important;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 8px;
+    box-shadow: none !important;
 }
 
-.w3-white, .w3-hover-white:hover {
-  background-color: #fff0!important;
+.w3-white,
+.w3-hover-white:hover {
+    background-color: #fff0!important;
 }
+
 .sign-container {
-  font-size: 20px;
+    font-size: 20px;
 }
+
 .register-text {
-  font-size: 15px;
+    font-size: 15px;
 }
 
 .navbar span {
-  color: black;
+    color: black;
+}
+
+@media only screen and (max-width:500px) {
+    .login-box {
+        position: relative;
+        right: 2em;
+    }
+    .register-prop {
+        position: relative;
+        right: 4em;
+    }
 }
