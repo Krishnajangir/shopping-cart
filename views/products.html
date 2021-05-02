@@ -14,7 +14,7 @@
 <body onresize="resizeCartWindow()">
     <main>
         <heading>
-            <div class="navbar">
+            <nav class="navbar">
                 <div class="first-box">
                     <a class="navbar-img" href="#">
                         <img src="../static/images/logo.png" width="120" height="80" alt="cart logo">
@@ -41,7 +41,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </nav>
         </heading>
         <section class="side-nav">
             <div class="topnav">
@@ -98,7 +98,7 @@
                     </div>
                     <div class="model-content-footer">
                         <span class="modal-footer-span">Promo code can be applied on payment page.</span>
-                        <button class="model-content-footer-button" onclick="proceedToBuy()">
+                        <button class="model-content-footer-button" onclick="addToCart().proceedToBuy()">
                                 <span>Proceed to Checkout</span>
                                 <span> Rs.187 <i class='fas fa-arrow-right'></i></span>
                         </button>

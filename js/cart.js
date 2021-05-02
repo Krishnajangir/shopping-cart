@@ -3,21 +3,20 @@ resizeCartWindow = () => {
         window.location.href = PRODUCT_PATH;
     }
 }
-renderCartMobileView = () => {
-    productId = JSON.parse(localStorage.getItem("productId"));
-    let itemNumber = localStorage.getItem("productNumbers");
-    document.getElementById("items").innerHTML = (itemNumber === null ? 0 : itemNumber) + " items";
-    if (productId !== null) {
+getCartData = () => {
+    cartProductData = JSON.parse(localStorage.getItem("selectedCartData"));
+    document.getElementById("items").innerHTML = (cartProductData.length === null ? 0 : cartProductData.length) + " items";
+    if (cartProductData.length !== 0) {
         cartValues = [];
         getProducts().then((data) => {
             data.filter((val) => {
-                productId.forEach((data) => {
+                cartProductData.forEach((data) => {
                     if (val.sku === data) {
                         cartValues.push(val);
                     }
                 });
             });
-            getMobileCartData(cartValues, productId.length)
+            getMobileCartData(cartValues, cartProductData.length)
         })
     } else {
         emptyMobileCartInterface();
@@ -51,23 +50,18 @@ getMobileCartData = (cartValues, itemNumber) => {
         <div class="total-cart-cost">
           <span>Total: Rs. </span><span class="priceNew">${val.price} </span>
         </div>
-      </div>
+      </div> <span onclick="addToCart().removeProduct('${val.sku}')"><i class="fa fa-trash " ></i></span>
     </div>`;
         document.querySelector(".items").innerHTML = cartItem;
-        cartMobileItemInterface(itemNumber);
         document.getElementById('cart-empty-container').style.display = "none";
+        document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) `;
 
     })
 }
 
 emptyMobileCartInterface = () => {
-    document.getElementById('cart-empty-container').style.display = "block";
     document.getElementById('mobile-cart-container').style.display = "none";
-}
-
-cartMobileItemInterface = (itemNumber) => {
-    document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) <span onclick="deleteMobileCartData()"><i class="fa fa-trash " ></i></span>`;
-
+    document.getElementById('cart-empty-container').style.display = "block";
 }
 
 proceedToBuy = () => {
@@ -85,4 +79,4 @@ deleteMobileCartData = () => {
 
 startShop = () => window.location.href = PRODUCT_PATH;
 
-renderCartMobileView();
+getCartData();

@@ -1,6 +1,7 @@
+// localStorage.clear()
+
 productInterface = () => {
-    let itemNumber = localStorage.getItem("productNumbers");
-    document.getElementById("items").innerHTML = (itemNumber === null ? 0 : itemNumber) + " items";
+    document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") + " items";
     const selectedValue = gatCurrentValue();
     getProducts().then((data) => {
         let elements = "";
@@ -17,7 +18,7 @@ productInterface = () => {
                                 ${productData.description}</div>
                         </div>
                         <footer class="w3-container footer w3-white"><span id="mrp">
-                           MRP Rs ${productData.price}</span><button onclick="addToCart('${productData.sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
+                           MRP Rs ${productData.price}</span><button onclick="addToCart().addProduct('${productData.sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
                            Buy Now</button></footer>
                     </div>
                 </div>
@@ -62,53 +63,13 @@ addLinkProperty = () => {
     });
 }
 
-addToCart = (selectedItemName) => {
-    let data = JSON.parse(localStorage.getItem("productId"));
-    (function() {
-        if (data === null) {
-            data = data ? data.split(",") : [];
-            data.push(selectedItemName);
-            document.getElementById("itemNotExist").style.display = "block";
-        } else {
-            if (!data.includes(selectedItemName)) {
-                data.push(selectedItemName);
-                document.getElementById("itemNotExist").style.display = "block";
-            } else document.getElementById("itemExist").style.display = "block";
-        }
-        localStorage.setItem("productId", JSON.stringify(data));
-        localStorage.setItem("productNumbers", data === null ? 0 : data.length);
-        document.getElementById("items").innerHTML = (data === null ? 0 : data.length) + " items";
-    })();
-};
-
-getCartData = () => {
-    productId = JSON.parse(localStorage.getItem("productId"));
-    if (productId !== null) {
-        let cartValues = [];
-        getProducts().then((data) => {
-            data.filter((val) => {
-                productId.forEach((data) => {
-                    if (val.sku === data) {
-                        cartValues.push(val);
-                    }
-                });
-            });
-            cartInterface(cartValues, productId.length);
-        })
-    } else emptyCartInterface();
-};
-
-emptyCartInterface = () => {
-    document.getElementById("emptyCart").style.display = "block";
-};
-
 cartInterface = (cartValues, itemNumber) => {
     let cartUI = '';
     quantity = 1;
     cartValues.forEach((val) => {
         cartUI += `<div class="cart-element">
         <img id="imgg" src="${val.imageURL}" alt="cart-images" height="100px" />
-        <div class="cart-item-detail">
+        <divb class="cart-item-detail">
           <h4 class="modal-text">${val.name}</h4>
           <i
             onclick="increaseItems(event)"
@@ -124,32 +85,37 @@ cartInterface = (cartValues, itemNumber) => {
           <div class="total-cart-cost">
             <span>Total: Rs. </span><span class="priceNew">${val.price} </span>
           </div>
-        </div>
+        </divb><span onclick="addToCart().removeProduct('${val.sku}')"><i class="fa fa-trash " ></i></span>
       </div>`;
         document.querySelector(".items").innerHTML = cartUI;
-        cartItemInterface(itemNumber);
         document.getElementById("cartModal").style.display = "block";
+        document.querySelector(
+            ".modal-header"
+        ).innerHTML = `My Cart (${itemNumber} items)`;
     })
 };
 
-cartItemInterface = (itemNumber) => {
-    document.querySelector(
-        ".modal-header"
-    ).innerHTML = `My Cart (${itemNumber} items) <span onclick="deleteCartData()"><i class="fa fa-trash " ></i></span>`;
+
+getCartData = () => {
+    cartProductData = JSON.parse(localStorage.getItem("selectedCartData")) || [];
+    if (cartProductData.length !== 0) {
+        let cartValues = [];
+        getProducts().then((data) => {
+            data.filter((val) => {
+                cartProductData.forEach((data) => {
+                    if (val.sku === data) {
+                        cartValues.push(val);
+                    }
+                });
+            });
+            cartInterface(cartValues, cartProductData.length);
+        })
+    } else emptyCartInterface();
 };
 
-proceedToBuy = () => {
+emptyCartInterface = () => {
     document.getElementById("cartModal").style.display = "none";
-    alert("Thankyou for doing shopping with us ,waiting for your next arrival here.");
-    localStorage.clear();
-    window.location.reload();
-
-}
-
-deleteCartData = () => {
-    closeCartModal();
-    localStorage.clear();
-    window.location.reload();
+    document.getElementById("emptyCart").style.display = "block";
 };
 
 resizeCartWindow = () => {
