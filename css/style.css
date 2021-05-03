@@ -116,11 +116,6 @@
   display: flex;
   justify-content: flex-end; }
 
-.fa-arrow-right {
-  position: relative;
-  top: 18px;
-  left: 3%; }
-
 .cart-modal {
   display: none;
   position: fixed;
@@ -669,8 +664,8 @@
 
 .fas {
   position: relative;
-  left: 7px;
-  top: 0em; }
+  top: 1em;
+  right: 2em; }
 
 .model-content-footer-button {
   display: flex;

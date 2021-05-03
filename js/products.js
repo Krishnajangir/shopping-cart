@@ -1,7 +1,7 @@
 // localStorage.clear()
 
 productInterface = () => {
-    document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") + " items";
+    document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") || 0;
     const selectedValue = gatCurrentValue();
     getProducts().then((data) => {
         let elements = "";
@@ -65,8 +65,11 @@ addLinkProperty = () => {
 
 cartInterface = (cartValues, itemNumber) => {
     let cartUI = '';
+    priceValues = [];
     quantity = 1;
     cartValues.forEach((val) => {
+        priceValues.push(val.price);
+        localStorage.setItem('priceValues', priceValues);
         cartUI += `<div class="cart-element">
         <img id="imgg" src="${val.imageURL}" alt="cart-images" height="100px" />
         <divb class="cart-item-detail">
@@ -93,6 +96,8 @@ cartInterface = (cartValues, itemNumber) => {
             ".modal-header"
         ).innerHTML = `My Cart (${itemNumber} items)`;
     })
+    let prices = localStorage.getItem('priceValues').split(',');
+    document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
 };
 
 

@@ -55,7 +55,7 @@ const addToCart = function() {
             let updatedData = [...data, selectedItem];
             localStorage.setItem("selectedCartData", JSON.stringify(updatedData));
             localStorage.setItem("productNumbers", updatedData.length);
-            document.getElementById("items").innerHTML = updatedData.length + " items";
+            document.getElementById("items").innerHTML = updatedData.length;
             document.getElementById("itemNotExist").style.display = "block";
         } else document.getElementById("itemExist").style.display = "block";
 
@@ -65,10 +65,14 @@ const addToCart = function() {
         let filteredCartData = data.filter(product => product !== selectedItem);
         localStorage.setItem("selectedCartData", JSON.stringify(filteredCartData));
         localStorage.setItem("productNumbers", filteredCartData.length);
-        document.getElementById("items").innerHTML = filteredCartData.length + " items";
+        document.getElementById("items").innerHTML = filteredCartData.length;
         alert('Item is deleted successfully');
         getCartData();
     };
+
+    const totalPrice = function(total, num) {
+        return parseInt(total) + parseInt(num);
+    }
 
     const proceedToBuy = function() {
         document.getElementById("cartModal").style.display = "none";
@@ -80,6 +84,7 @@ const addToCart = function() {
     return {
         addProduct,
         removeProduct,
-        proceedToBuy
+        proceedToBuy,
+        totalPrice
     }
 }
