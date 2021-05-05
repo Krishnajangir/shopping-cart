@@ -4,7 +4,7 @@ resizeCartWindow = () => {
     }
 }
 getCartData = () => {
-    cartProductData = JSON.parse(localStorage.getItem("selectedCartData"));
+    cartProductData = JSON.parse(localStorage.getItem("selectedCartData")) || [];
     document.getElementById("items").innerHTML = (cartProductData.length === null ? 0 : cartProductData.length) + " items";
     if (cartProductData.length !== 0) {
         cartValues = [];
@@ -25,8 +25,11 @@ getCartData = () => {
 
 getMobileCartData = (cartValues, itemNumber) => {
     let cartItem = '';
+    priceValues = [];
     quantity = 1;
     cartValues.forEach((val) => {
+        priceValues.push(val.price);
+        localStorage.setItem('priceValues', priceValues);
         cartItem += `<div class="cart-mobile">
       <img
         id="imgg"
@@ -57,6 +60,8 @@ getMobileCartData = (cartValues, itemNumber) => {
         document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) `;
 
     })
+    let prices = localStorage.getItem('priceValues').split(',');
+    document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
 }
 
 emptyMobileCartInterface = () => {
