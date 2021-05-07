@@ -18,7 +18,6 @@ window.onclick = function(event) {
     }
 };
 
-// currying example
 const itemsCount = {
     totalPrice: function(price) {
         return function(quantity) {
@@ -31,9 +30,10 @@ const totalItemPrice = function(price, currentQuantity, selectedValue) {
     let prices = localStorage.getItem('priceValues').split(',');
     prices.forEach((val, index) => {
         if (val === selectedValue) {
-            prices[index] = itemsCount.totalPrice(price)(currentQuantity);
+            prices[index] = itemsCount.totalPrice(price)(currentQuantity).toString();
         }
     })
+    localStorage.setItem('priceValues', prices);
     document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
 }
 
@@ -42,8 +42,8 @@ increaseItems = (event, selectedValue) => {
     let price = event.currentTarget.parentElement.querySelector(".price").innerHTML;
     currentQuantity = currentQuantity || 1;
     currentQuantity = ++currentQuantity;
-    document.querySelector('.itemQuantity').value = currentQuantity;
-    document.querySelector('.priceNew').innerHTML = itemsCount.totalPrice(price)(currentQuantity);
+    event.currentTarget.parentElement.querySelector(".itemQuantity").value = currentQuantity;
+    event.currentTarget.parentElement.querySelector(".priceNew").innerHTML = itemsCount.totalPrice(price)(currentQuantity);
     totalItemPrice(price, currentQuantity, selectedValue)
 }
 
@@ -53,8 +53,8 @@ decreaseItems = (event, selectedValue) => {
     if (currentQuantity !== '0') {
         currentQuantity = currentQuantity || 1;
         currentQuantity = --currentQuantity;
-        document.querySelector('.itemQuantity').value = currentQuantity;
-        document.querySelector('.priceNew').innerHTML = itemsCount.totalPrice(price)(currentQuantity);
+        event.currentTarget.parentElement.querySelector(".itemQuantity").value = currentQuantity;
+        event.currentTarget.parentElement.querySelector(".priceNew").innerHTML = itemsCount.totalPrice(price)(currentQuantity);
         totalItemPrice(price, currentQuantity, selectedValue)
     }
 };
