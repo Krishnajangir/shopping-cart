@@ -27,16 +27,27 @@ const itemsCount = {
     }
 }
 
-increaseItems = (event) => {
+const totalItemPrice = function(price, currentQuantity, selectedValue) {
+    let prices = localStorage.getItem('priceValues').split(',');
+    prices.forEach((val, index) => {
+        if (val === selectedValue) {
+            prices[index] = itemsCount.totalPrice(price)(currentQuantity);
+        }
+    })
+    document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
+}
+
+increaseItems = (event, selectedValue) => {
     let currentQuantity = event.currentTarget.parentElement.querySelector(".itemQuantity").value;
     let price = event.currentTarget.parentElement.querySelector(".price").innerHTML;
     currentQuantity = currentQuantity || 1;
     currentQuantity = ++currentQuantity;
     document.querySelector('.itemQuantity').value = currentQuantity;
-    document.querySelector('.priceNew').innerHTML = itemsCount.totalPrice(price)(currentQuantity)
+    document.querySelector('.priceNew').innerHTML = itemsCount.totalPrice(price)(currentQuantity);
+    totalItemPrice(price, currentQuantity, selectedValue)
 }
 
-decreaseItems = (event) => {
+decreaseItems = (event, selectedValue) => {
     let currentQuantity = event.currentTarget.parentElement.querySelector(".itemQuantity").value;
     let price = event.currentTarget.parentElement.querySelector(".price").innerHTML;
     if (currentQuantity !== '0') {
@@ -44,6 +55,7 @@ decreaseItems = (event) => {
         currentQuantity = --currentQuantity;
         document.querySelector('.itemQuantity').value = currentQuantity;
         document.querySelector('.priceNew').innerHTML = itemsCount.totalPrice(price)(currentQuantity);
+        totalItemPrice(price, currentQuantity, selectedValue)
     }
 };
 
@@ -80,6 +92,7 @@ const addToCart = function() {
         localStorage.clear();
         window.location.reload();
     };
+
 
     return {
         addProduct,

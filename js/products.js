@@ -75,12 +75,12 @@ cartInterface = (cartValues, itemNumber) => {
         <divb class="cart-item-detail">
           <h4 class="modal-text">${val.name}</h4>
           <i
-            onclick="increaseItems(event)"
+            onclick="increaseItems(event , '${val.price}')"
             class="fa fa-plus cart-icon-class"
           ></i>
           <input class="itemQuantity" value="${quantity}" disabled />
           <i
-            onclick="decreaseItems(event)"
+            onclick="decreaseItems(event , '${val.price}')"
             class="fa fa-minus cart-icon-class"
           ></i>
           <i class="fa fa-times" aria-hidden="true"></i>

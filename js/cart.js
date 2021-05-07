@@ -25,8 +25,11 @@ getCartData = () => {
 
 getMobileCartData = (cartValues, itemNumber) => {
     let cartItem = '';
+    priceValues = [];
     quantity = 1;
     cartValues.forEach((val) => {
+        priceValues.push(val.price);
+        localStorage.setItem('priceValues', priceValues);
         cartItem += `<div class="cart-mobile">
       <img
         id="imgg"
@@ -37,12 +40,12 @@ getMobileCartData = (cartValues, itemNumber) => {
       <div>
         <h4 class="modal-text">${val.name}</h4>
         <i
-          onclick="increaseItems(event)"
+          onclick="increaseItems(event , '${val.price}')"
           class="fa fa-plus cart-icon-class"
         ></i>
         <input class="itemQuantity" value="${quantity}" disabled />
         <i
-          onclick="decreaseItems(event)"
+          onclick="decreaseItems(event , '${val.price}')"
           class="fa fa-minus cart-icon-class"
         ></i>
         <i class="fa fa-times" aria-hidden="true"></i>
@@ -57,6 +60,8 @@ getMobileCartData = (cartValues, itemNumber) => {
         document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) `;
 
     })
+    let prices = localStorage.getItem('priceValues').split(',');
+    document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
 }
 
 emptyMobileCartInterface = () => {
