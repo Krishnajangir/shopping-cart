@@ -1,6 +1,6 @@
 const PRODUCTS_END_POINT = "http://localhost:5000/products";
-const CART_PATH = "http://127.0.0.1:5500/views/cart.html";
-const PRODUCT_PATH = "http://127.0.0.1:5500/views/products.html";
+const CART_PATH = "../views/cart.html";
+const PRODUCT_PATH = "../views/products.html";
 const CATEGORIES_END_POINT = "http://localhost:5000/categories";
 
 

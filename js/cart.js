@@ -67,7 +67,7 @@ emptyMobileCartInterface = () => {
 proceedToBuy = () => {
     alert("Thankyou for doing shopping with us ,waiting for your next arrival here.");
     localStorage.clear();
-    window.location.href = "http://127.0.0.1:5500/views/products.html";
+    window.location.href = "../views/products.html";
 
 }
 

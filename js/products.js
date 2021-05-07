@@ -44,7 +44,7 @@ changeLinkItem = () => {
 
 goToCartPage = () => {
     if (document.body.clientWidth < 500)
-        window.location.href = "http://127.0.0.1:5500/views/cart.html#";
+        window.location.href = "../views/cart.html#";
     else getCartData();
 };
 

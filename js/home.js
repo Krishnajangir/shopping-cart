@@ -87,7 +87,7 @@ function showSlides(n) {
 
 goToProductsList = (text) => {
     localStorage.setItem('productType', EXPLORE_TYPE[text]);
-    window.location.href = "http://127.0.0.1:5500/views/products.html";
+    window.location.href = "../views/products.html";
 }
 
 categoriesInterface(showSlides)

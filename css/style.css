@@ -769,7 +769,8 @@
   .w3-card-4 p {
     font-weight: bolder;
     font-size: 23px;
-    margin: 2%; }
+    margin: 2%;
+    height: 25%; }
   .w3-card-4 span {
     padding-left: 20%;
     font-size: 16px; }
