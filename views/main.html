@@ -11,87 +11,92 @@
 </head>
 
 <body>
-    <heading>
-        <nav class="navbar">
-            <div class="first-box">
-                <a class="navbar-img" href="#">
-                    <img src="../static/images/logo.png" width="120" height="80" alt="cart logo">
-                </a>
-            </div>
-            <div class="mid-box">
-                <a href="./main.html">
-                    <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
-                </a>
-                <a href="./products.html">
-                    <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
-                </a>
-            </div>
-            <div class="last-box">
-                <a href="./signIn.html">
-                    <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
-                </a>
-                <a href="./register.html">
-                    <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
-                </a>
-                <div class="cart">
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="crumb first-box">
+                    <a class="navbar-img" href="#">
+                        <img src="../static/images/logo.png" width="120" height="80" alt="cart logo">
+                    </a>
+                </li>
+                <li class="crumb mid-box">
+                    <a href="./main.html">
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
+                    </a>
+                </li>
+                <li class="crumb mid-box">
+                    <a href="./products.html">
+                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
+                    </a>
+                </li>
+                <li class="crumb last-box">
+                    <a href="./signIn.html">
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
+                    </a>
+                </li>
+                <li class="crumb last-box">
+                    <a href="./register.html">
+                        <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
+                    </a>
+                </li>
+                <li class="crumb last-box cart">
                     <a href="#">
                         <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span id="items">Items</span>
                     </a>
-                </div>
-            </div>
+                </li>
+            </ul>
         </nav>
-    </heading>
-    <section>
-        <div class="slider">
-            <div class="slideshow-container">
+    </header>
+    <section class="slider slideshow-container">
+        <ul>
+            <li class="mySlides fade">
+                <img class="slide-image" src="../static/images/offers/offer1.jpg">
+            </li>
+            <li class="mySlides fade">
+                <img class="slide-image" src="../static/images/offers/offer2.jpg">
+            </li>
+            <li class="mySlides fade">
+                <img class="slide-image" src="../static/images/offers/offer3.jpg">
+            </li>
+            <li class="mySlides fade">
+                <img class="slide-image" src="../static/images/offers/offer4.jpg">
+            </li>
+            <li class="mySlides fade">
+                <img class="slide-image" src="../static/images/offers/offer5.jpg">
+            </li>
+        </ul>
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <ul class="crumb silder-dot">
+            <li>
+                <span class="dot" onclick="currentSlide(1)"></span>
+            </li>
+            <li>
+                <span class="dot" onclick="currentSlide(2)"></span>
+            </li>
+            <li>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </li>
+            <li>
+                <span class="dot" onclick="currentSlide(4)"></span>
+            </li>
+            <li>
+                <span class="dot" onclick="currentSlide(5)"></span>
+            </li>
+        </ul>
+        <hr class="gred-shadow ">
+    </section>
 
-                <div class="mySlides fade">
-                    <img src="../static/images/offers/offer1.jpg" height="30%" width="100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="../static/images/offers/offer2.jpg" height="30%" width="100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="../static/images/offers/offer3.jpg" height="30%" width="100%">
-                </div>
-
-                <div class="mySlides fade">
-                    <img src="../static/images/offers/offer4.jpg" height="30%" width="100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="../static/images/offers/offer5.jpg" height="30%" width="100%">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                <br>
-                <div class="gred-shadow "></div>
-                <div class="silder-dot">
-                    <span class="dot" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                </div>
-
-            </div>
-
+    <section class="w3-container">
+        <div id="category-list">
         </div>
     </section>
-    <section>
-        <div class="w3-container">
-            <div id="own-cat">
-            </div>
-        </div>
-
-    </section>
-    <footer class="home-footer">
-        <div class="home-footer-text">Copyright &copy; Sabka Bazaar Grocery Supplies Pvt Ltd
+    <footer class=" home-footer ">
+        <div class="home-footer-text ">Copyright &copy; Sabka Bazaar Grocery Supplies Pvt Ltd
         </div>
     </footer>z
-    <script src="../js/constants.js"></script>
-    <script src="../js/home.js"></script>
+    <script src="../js/constants.js "></script>
+    <script src="../js/home.js "></script>
 
 </body>
 

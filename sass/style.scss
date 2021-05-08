@@ -1,135 +1,156 @@
 * {
     box-sizing: border-box;
-  }
-  html, body {
-    font-family: "Segoe UI",Arial,sans-serif !important;
+}
+
+html,
+body {
+    font-family: "Segoe UI", Arial, sans-serif !important;
     font-size: 12px !important;
     line-height: 1.5 !important;
-  }
-  @mixin navbar-prop {
+}
+
+@mixin navbar-prop {
     background-color: white;
-    box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;
+    box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
     position: static;
     margin-bottom: 10px;
     display: flex;
     padding-right: 10%;
-  }
-  .main {
+}
+
+.main {
     height: 100%;
     width: 100%;
-  }
-  .navbar {
+}
+
+.navbar {
     @include navbar-prop;
     padding-left: 10%;
-  }
+}
 
-  .navbar span {
+.navbar span {
     position: relative;
     bottom: 4%;
     color: #4f4d4deb;
     font-weight: 700;
     font-size: 13px;
     margin-bottom: 10px;
-  }
-  .first-box {
+}
+
+.first-box {
     flex: 1;
-  }
-  .navbar-img img {
-     margin: 3%;
-  }
-  .mid-box {
+}
+
+.navbar-img img {
+    margin: 3%;
+}
+
+.mid-box {
     flex: 5;
-  }
-  .mid-box a {
+}
+
+.mid-box a {
     position: relative;
     top: 72px;
     padding-left: 10%;
-  }
-  .cart {
+}
+
+.cart {
     background-color: #80808029;
     padding: 3%;
     position: relative;
     top: 33%;
     left: 8%;
-  }
-  .last-box {
+}
+
+.last-box {
     flex: 1;
-  }
-  .last-box a {
+}
+
+.last-box a {
     position: relative;
     padding-left: 9%;
     top: 5%;
-  }
-  a {
+}
+
+a {
     text-decoration: none;
-  }
-  .own-main {
+}
+
+.own-main {
     float: right;
     position: relative;
     right: 10%;
-  }
-  .own-tabs {
+}
+
+.own-tabs {
     display: flex;
     justify-content: space-around;
-  }
-  .own-cart {
+}
+
+.own-cart {
     position: relative;
     top: 47px;
     left: 92px;
-  }
-  .own-home {
+}
+
+.own-home {
     position: relative;
     top: 61px;
     right: 10%;
-  }
-  @media only screen and (max-width: 1200px) {
+}
+
+@media only screen and (max-width: 1200px) {
     .cart {
-      background-color: #8080801c;
-      padding: 4%;
-      position: relative;
-      top: 34%;
-      left: 3em;
-      width: 10em;
+        background-color: #8080801c;
+        padding: 4%;
+        position: relative;
+        top: 34%;
+        left: 3em;
+        width: 10em;
     }
     .mid-box {
-      flex: 5;
-      position: relative;
-      bottom: 22px;
+        flex: 5;
+        position: relative;
+        bottom: 22px;
     }
-  
-  }
-  .wrapper {
+}
+
+.wrapper {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
     grid-auto-rows: minmax(100px, auto);
-  }
-  @media only screen and (max-width: 1368px) {
+}
+
+@media only screen and (max-width: 1368px) {
     .home-cart {
-      background-color: #80808042;
-      padding: 5%;
-      position: relative;
-      top: 4%;
-      left: 20%;
+        background-color: #80808042;
+        padding: 5%;
+        position: relative;
+        top: 4%;
+        left: 20%;
     }
-  }
-  .own-head {
+}
+
+.own-head {
     display: flex;
     flex-wrap: wrap;
-  }
-  @media only screen and (min-width:750px) and (max-width: 1024px) {
+}
+
+@media only screen and (min-width:750px) and (max-width: 1024px) {
     .navbar {
-      @include navbar-prop;
-      padding-left: 0%;
+        @include navbar-prop;
+        padding-left: 0%;
     }
-  }
-  @media only screen and (max-width:750px) {
+}
+
+@media only screen and (max-width:750px) {
     .navbar {
-      @include navbar-prop;
-      padding-left: 0%;
+        @include navbar-prop;
+        padding-left: 0%;
     }
     .nav-hide-item {
-      display: none;
+        display: none;
     }
-  }
-  
+}

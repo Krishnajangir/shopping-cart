@@ -244,7 +244,7 @@
     height: 14%;
     width: 81%; } }
 
-#own-cat {
+#category-list {
   display: flex;
   flex-direction: column; }
 
@@ -274,12 +274,16 @@
   position: relative;
   margin: auto; }
 
-.w3-card, .w3-card-2 {
+.w3-card,
+.w3-card-2 {
   box-shadow: none !important; }
 
 /* Hide the images by default */
 .mySlides {
   display: none; }
+
+.crumb {
+  list-style: none; }
 
 /* Next & previous buttons */
 .prev {
@@ -314,7 +318,8 @@
 
 /* Position the "next button" to the right */
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
+.prev:hover,
+.next:hover {
   background-color: rgba(0, 0, 0, 0.8); }
 
 /* Caption text */
@@ -338,10 +343,10 @@
 /* The dots/bullets/indicators */
 .dot {
   cursor: pointer;
-  height: 9px;
-  width: 8px;
-  margin: 0 2px;
-  background-color: #bbb;
+  height: 6px;
+  width: 6px;
+  margin: 0px 7px;
+  background-color: #00000061;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.6s ease; }
@@ -366,7 +371,9 @@
     opacity: 1; } }
 
 .silder-dot {
-  text-align: center; }
+  text-align: center;
+  display: flex;
+  justify-content: center; }
 
 .home-cart {
   background-color: #80808042;
@@ -378,6 +385,14 @@
 .home-footer {
   background-color: #8080801a;
   display: flex; }
+
+.active,
+.dot:hover {
+  background-color: #717171; }
+
+.slide-image {
+  height: 15em;
+  width: 80em; }
 
 .home-footer-text {
   font-size: 11px;
@@ -391,7 +406,8 @@
   margin: 0 10% 0 10%; }
 
 @media only screen and (max-width: 700px) {
-  .w3-container, .w3-panel {
+  .w3-container,
+  .w3-panel {
     padding: 0px !important; }
   .even-img {
     height: 100%;
@@ -1088,8 +1104,9 @@
 * {
   box-sizing: border-box; }
 
-html, body {
-  font-family: "Segoe UI",Arial,sans-serif !important;
+html,
+body {
+  font-family: "Segoe UI", Arial, sans-serif !important;
   font-size: 12px !important;
   line-height: 1.5 !important; }
 
@@ -1099,7 +1116,7 @@ html, body {
 
 .navbar {
   background-color: white;
-  box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;
+  box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
   position: static;
   margin-bottom: 10px;
   display: flex;
@@ -1199,7 +1216,7 @@ a {
 @media only screen and (min-width: 750px) and (max-width: 1024px) {
   .navbar {
     background-color: white;
-    box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;
+    box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
     position: static;
     margin-bottom: 10px;
     display: flex;
@@ -1209,7 +1226,7 @@ a {
 @media only screen and (max-width: 750px) {
   .navbar {
     background-color: white;
-    box-shadow: rgba(128, 128, 128, 0.38) 0px 11px 21px;
+    box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
     position: static;
     margin-bottom: 10px;
     display: flex;

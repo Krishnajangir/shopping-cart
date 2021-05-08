@@ -1,4 +1,4 @@
-// localStorage.clear()
+import { templateUI } from './template.js';
 
 productInterface = () => {
     document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") || 0;
@@ -7,23 +7,7 @@ productInterface = () => {
         let elements = "";
         const dataToRender = (selectedValue === 'All') ? data : data.filter(d => d.category === PRODUCT_KEYS[selectedValue]);
         dataToRender.forEach((productData) => {
-            elements += `<div class="products">
-            <div class="w3-card-4">
-                <p>${productData.name} </p>
-                <div class='base-header'>
-                    <header class="w3-container header w3-white"><img id="image" style="margin: auto;" src='${productData.imageURL}' height="140px" width="100%" /></header>
-                    <div class='base-footer'>
-                        <div class='w3-container text-css'>
-                            <div class="desc">
-                                ${productData.description}</div>
-                        </div>
-                        <footer class="w3-container footer w3-white"><span id="mrp">
-                           MRP Rs ${productData.price}</span><button onclick="addToCart().addProduct('${productData.sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
-                           Buy Now</button></footer>
-                    </div>
-                </div>
-            </div>
-        </div>`
+            elements += templateUI.product(productData)
             document.getElementById("own-products").innerHTML = elements;
         })
     });

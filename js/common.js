@@ -33,7 +33,6 @@ const totalItemPrice = function(price, currentQuantity, selectedValue) {
             prices[index] = itemsCount.totalPrice(price)(currentQuantity).toString();
         }
     })
-    localStorage.setItem('priceValues', prices);
     document.querySelector('.totalPrice').innerHTML = 'Rs. ' + prices.reduce(addToCart().totalPrice);
 }
 
@@ -61,13 +60,14 @@ decreaseItems = (event, selectedValue) => {
 
 const addToCart = function() {
     let data = JSON.parse(localStorage.getItem("selectedCartData")) || [];
+    const itemsElement = document.getElementById("items");
 
     const addProduct = function(selectedItem) {
         if (!data.includes(selectedItem)) {
             let updatedData = [...data, selectedItem];
             localStorage.setItem("selectedCartData", JSON.stringify(updatedData));
             localStorage.setItem("productNumbers", updatedData.length);
-            document.getElementById("items").innerHTML = updatedData.length;
+            itemsElement.innerHTML = updatedData.length;
             document.getElementById("itemNotExist").style.display = "block";
         } else document.getElementById("itemExist").style.display = "block";
 
