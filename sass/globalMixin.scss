@@ -1,0 +1,63 @@
+@mixin text-center-alignment {
+    text-align: center;
+}
+
+@mixin flex-prop {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin grid-prop {
+    display: inline-grid;
+    background-color: white;
+}
+
+@mixin navbar-prop {
+    overflow: hidden;
+    background-color: $full-cart-color;
+    position: relative;
+    width: 100vw;
+}
+
+@mixin btn-cursor-prop {
+    cursor: pointer;
+}
+
+@mixin modal-common-prop {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+@mixin image-size-prop {
+    width: 12em;
+    height: 17em;
+}
+
+@mixin footer-prop {
+    justify-content: space-evenly;
+    position: relative;
+    font-size: 20px;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+@mixin footer-btn {
+    width: 100%;
+    position: relative;
+    color: white;
+}
+
+@mixin text-prop {
+    display: inline-block;
+    background-color: #80808026;
+    margin: 3%;
+    overflow: hidden;
+    text-overflow: clip;
+    height: 8em;
+}
+
+@mixin span-prop {
+    padding-left: 20%;
+    font-size: 16px;
+}

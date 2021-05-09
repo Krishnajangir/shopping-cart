@@ -51,7 +51,7 @@ categoriesInterface = (showSlides) => {
                 <div class='gred-shadow'></div>
                 </div>`;
             }
-            document.getElementById("category-list").innerHTML = homeItems;
+            document.querySelector(".category-list").innerHTML = homeItems;
         })
     })
     showSlides(slideIndex);

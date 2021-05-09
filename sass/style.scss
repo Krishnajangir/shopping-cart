@@ -13,7 +13,6 @@ body {
     background-color: white;
     box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
     position: static;
-    margin-bottom: 10px;
     display: flex;
     padding-right: 10%;
 }
@@ -28,10 +27,10 @@ body {
     padding-left: 10%;
 }
 
-.navbar span {
+.nav-hide-item {
     position: relative;
     bottom: 4%;
-    color: #4f4d4deb;
+    color: #797f8b;
     font-weight: 700;
     font-size: 13px;
     margin-bottom: 10px;
@@ -39,6 +38,7 @@ body {
 
 .first-box {
     flex: 1;
+    cursor: pointer;
 }
 
 .navbar-img img {
@@ -49,28 +49,50 @@ body {
     flex: 5;
 }
 
-.mid-box a {
+.home-link-text {
     position: relative;
-    top: 72px;
-    padding-left: 10%;
+    top: 3em;
+    padding-left: 14em;
+}
+
+.product-link-text {
+    position: relative;
+    top: 3em;
+    padding-left: 14em;
+    right: 23em;
 }
 
 .cart {
-    background-color: #80808029;
-    padding: 3%;
+    background-color: $full-cart-color;
+    padding: 1em;
     position: relative;
-    top: 33%;
-    left: 8%;
+    top: 0.9em;
+    width: 9em;
+}
+
+.footer-element {
+    font-size: 11px;
+    margin: 0 16em;
+    font-weight: bolder;
+    padding: 11px;
+    color: $footer-text-color
+}
+
+.footer-layout {
+    background-color: $full-cart-color;
+    display: flex;
 }
 
 .last-box {
     flex: 1;
+    cursor: pointer;
 }
 
 .last-box a {
     position: relative;
     padding-left: 9%;
     top: 5%;
+    margin-bottom: -0.5em;
 }
 
 a {
@@ -105,14 +127,16 @@ a {
         background-color: #8080801c;
         padding: 4%;
         position: relative;
-        top: 34%;
+        top: 25%;
         left: 3em;
         width: 10em;
     }
     .mid-box {
         flex: 5;
         position: relative;
-        bottom: 22px;
+    }
+    .product-link-text {
+        right: 10em;
     }
 }
 

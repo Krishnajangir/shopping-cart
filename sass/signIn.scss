@@ -1,3 +1,4 @@
+@import './variable.scss';
 .container-fluid,
 .flex-container {
     display: flex;
@@ -77,7 +78,7 @@
 }
 
 .signIn-footer {
-    background-color: #8080801a;
+    background-color: $full-cart-color;
     display: flex;
 }
 

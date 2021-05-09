@@ -1,5 +1,6 @@
-   export default product = function(product) {
-       return ` <div class="products">
+ class Templates {
+     product = function(product) {
+         return ` <div class="products">
          <div class="w3-card-4">
            <p>${product.name} </p>
            <div class='base-header'>
@@ -10,10 +11,11 @@
                            ${product.description}</div>
                    </div>
                     <footer class="w3-container footer w3-white"><span id="mrp">
-                      MRP Rs ${product.price}</span><button onclick="addToCart().addProduct('${product.sku}')" style="cursor:pointer;margin-top: 4%;background-color: #c15151;;border: none;">
+                      MRP Rs ${product.price}</span><button class="btn-prop" onclick="addToCart().addProduct('${product.sku}')">
                       Buy Now</button></footer>
                </div>
            </div>
        </div>
    </div>`
-   }
+     }
+ }

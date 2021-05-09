@@ -1,13 +1,12 @@
-import { templateUI } from './template.js';
-
 productInterface = () => {
     document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") || 0;
     const selectedValue = gatCurrentValue();
+    let template = new Templates;
     getProducts().then((data) => {
         let elements = "";
         const dataToRender = (selectedValue === 'All') ? data : data.filter(d => d.category === PRODUCT_KEYS[selectedValue]);
         dataToRender.forEach((productData) => {
-            elements += templateUI.product(productData)
+            elements += template.product(productData)
             document.getElementById("own-products").innerHTML = elements;
         })
     });

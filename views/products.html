@@ -12,126 +12,122 @@
 </head>
 
 <body onresize="resizeCartWindow()">
-    <main>
-        <header>
-            <nav class="navbar">
-                <div class="first-box">
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="crumb first-box">
                     <a class="navbar-img" href="#">
-                        <img src="../static/images/logo.png" width="120" height="80" alt="cart logo">
+                        <img class="cart-logo" src="../static/images/logo.png" alt="cart logo">
                     </a>
-                </div>
-                <div class="mid-box">
-                    <a href="./main.html">
-                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
-                    </a>
-                    <a href="./products.html">
-                        <span id="item-header" class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
-                    </a>
-                </div>
-                <div class="last-box">
-                    <a href="./signIn.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
-                    </a>
-                    <a href="./register.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
-                    </a>
+                </li>
+                <li class="crumb mid-box navbar-brand mb-0 h1 nav-hide-item home-link-text">
+                    <a href="./main.html">Home</a>
+                </li>
+                <li class="crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text">
+                    <a href="./products.html">Products </a>
+                </li>
+                <li class="crumb last-box navbar-brand mb-0 h1 nav-hide-item">
+                    <a class="nav-item" href="./signIn.html">SignIn</a>
+                    <a class="nav-item" href="./register.html">Register
+                        </a>
                     <div class="cart" onclick="goToCartPage()">
                         <a href="#">
-                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span id="items"></span><span> items</span>
+                            <img class="cart-image" src="../static/images/cart.svg" alt="cart logo"><span class="cart-item-text" id="items">Items</span>
                         </a>
                     </div>
-                </div>
-            </nav>
-        </header>
-        <section class="side-nav">
-            <div class="topnav">
-                <a class="active link" onclick="goToLink('fruit')">Fruits And Vegetables</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="side-nav">
+        <div class="topnav">
+            <a class="active link" onclick="goToLink('fruit')">Fruits And Vegetables</a>
 
-                <!-- Navigation links (hidden by default) -->
-                <div id="myLinks">
-                    <a class="link" onclick="goToLink('bakeries')">Bakery Cakes And Dairy</a>
-                    <a class="link" onclick="goToLink('beverage')">Beverages</a>
-                    <a class="link" onclick="goToLink('beauties')">Beauty And Hygiene</a>
-                    <a class="link" onclick="goToLink('babies')">Baby Care</a>
-                </div>
-                <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                <a href="javascript:void(0);" class="icon" onclick="changeLinkItem()">
-                    <i class="arrow down"></i>
-                </a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a class="link" onclick="goToLink('bakeries')">Bakery Cakes And Dairy</a>
+                <a class="link" onclick="goToLink('beverage')">Beverages</a>
+                <a class="link" onclick="goToLink('beauties')">Beauty And Hygiene</a>
+                <a class="link" onclick="goToLink('babies')">Baby Care</a>
             </div>
-            <div id="own-products">
-            </div>
-        </section>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="changeLinkItem()">
+                <i class="arrow down"></i>
+            </a>
+        </div>
+        <div id="own-products">
+        </div>
+    </section>
 
-        <!-- modal -->
-        <section>
-            <div id="itemExist" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h4>Item is Already in the cart.</h4>
-                </div>
+    <!-- modal -->
+    <section>
+        <div id="itemExist" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h4>Item is Already in the cart.</h4>
             </div>
-            <div id="itemNotExist" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h4>Item Added to cart successfully.</h4>
-                </div>
+        </div>
+        <div id="itemNotExist" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h4>Item Added to cart successfully.</h4>
             </div>
-        </section>
-        <!-- cart modal -->
-        <section>
-            <div id="cartModal" class="w3-modal">
-                <div class="w3-modal-content cart-full-content">
-                    <header class="w3-container w3-header">
-                        <span onclick="closeCartModal()" class="w3-button w3-display-topright">&times;</span>
-                        <h5 class="modal-header"></h5>
-                    </header>
-                    <div class="w3-container items">
+        </div>
+    </section>
+    <!-- cart modal -->
+    <section>
+        <div id="cartModal" class="w3-modal">
+            <div class="w3-modal-content cart-full-content">
+                <header class="w3-container w3-header">
+                    <span onclick="closeCartModal()" class="w3-button w3-display-topright">&times;</span>
+                    <h5 class="modal-header"></h5>
+                </header>
+                <div class="w3-container items">
+                </div>
+                <div class="model-content">
+                    <div class="model-content-ad-left">
+                        <img src="../static/images/lowest-price.png" alt="lowest price">
                     </div>
-                    <div class="model-content">
-                        <div class="model-content-ad-left">
-                            <img src="../static/images/lowest-price.png" alt="lowest price">
-                        </div>
-                        <div class="model-content-right">
-                            <p>You won't find it cheaper anywhere</p>
-                        </div>
+                    <div class="model-content-right">
+                        <p>You won't find it cheaper anywhere</p>
                     </div>
-                    <div class="model-content-footer">
-                        <span class="modal-footer-span">Promo code can be applied on payment page.</span>
-                        <button class="model-content-footer-button" onclick="addToCart().proceedToBuy()">
+                </div>
+                <div class="model-content-footer">
+                    <span class="modal-footer-span">Promo code can be applied on payment page.</span>
+                    <button class="model-content-footer-button" onclick="addToCart().proceedToBuy()">
                                 <span>Proceed to Checkout</span>
                                 <span class="totalPrice"> </span><i class='fas fa-arrow-right'></i>
                         </button>
-                    </div>
                 </div>
             </div>
-            <div id="emptyCart" class="w3-modal">
-                <div class="w3-modal-content empty-modal-content">
-                    <header class="w3-container w3-header">
-                        <span onclick="document.getElementById('emptyCart').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                        <h5 class="modal-header">My Cart</h5>
-                    </header>
-                    <div class="empty-content">
-                        <div class="model-empty-content">
-                            <p>No items in your cart.</p>
-                            <span>Your favorite item are just a click away.</span>
-                        </div>
+        </div>
+        <div id="emptyCart" class="w3-modal">
+            <div class="w3-modal-content empty-modal-content">
+                <header class="w3-container w3-header">
+                    <span onclick="document.getElementById('emptyCart').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                    <h5 class="modal-header">My Cart</h5>
+                </header>
+                <div class="empty-content">
+                    <div class="model-empty-content">
+                        <p>No items in your cart.</p>
+                        <span>Your favorite item are just a click away.</span>
                     </div>
-                    <div class="model-content-footer">
-                        <button class="model-content-footer-button">
+                </div>
+                <div class="model-content-footer">
+                    <button class="model-content-footer-button">
                                   <span>Start Shopping</span>
                           </button>
-                    </div>
                 </div>
             </div>
-        </section>
-        <footer class="own-footer">
-            <div class="footer-text">Copyright &copy; Sabka Bazaar Grocery Supplies Pvt Ltd
-            </div>
-        </footer>
-    </main>
+        </div>
+    </section>
+    <footer class="footer-layout">
+        <div class="footer-element">Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
+        </div>
+    </footer>
     <script src="../js/common.js"></script>
     <script src="../js/constants.js"></script>
+    <script src="../js/template.js"></script>
     <script src="../js/products.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>

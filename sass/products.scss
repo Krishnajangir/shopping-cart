@@ -1,3 +1,4 @@
+@import './variable.scss';
 @mixin products-main-class {
     display: inline-grid;
     background-color: white;
@@ -5,9 +6,10 @@
 
 @mixin top-navbar {
     overflow: hidden;
-    background-color: #8080801a;
+    background-color: $full-cart-color;
     position: relative;
     width: 100vw;
+    bottom: 1em;
 }
 
 @mixin flex-property {
@@ -85,19 +87,15 @@
         display: block;
     }
     a {
-        color: rgb(77, 75, 75);
         padding: 14px 16px;
         text-decoration: none;
         font-size: 17px;
         display: block;
         @include btn-property;
     }
-    a:active {
-        background-color: green;
-    }
     a:hover {
         color: black;
-        background-color: #c50c72;
+        background-color: grey;
     }
 }
 
@@ -117,7 +115,7 @@
 }
 
 .own-footer {
-    background-color: #8080801a;
+    background-color: $full-cart-color;
     @include flex-property;
     justify-content: space-between;
 }
@@ -132,6 +130,13 @@
     font-weight: bolder;
     position: relative;
     left: 7%;
+}
+
+.btn-prop {
+    cursor: pointer;
+    margin-top: 4%;
+    background-color: $button-color;
+    border: none;
 }
 
 .modal {
@@ -245,7 +250,7 @@
 
 .footer {
     width: 100%;
-    background-color: #c50c72;
+    background-color: $button-color;
     margin-bottom: 22px;
     span {
         text-align: center;
@@ -253,7 +258,7 @@
     button {
         width: 7em;
         padding: 4%;
-        background-color: #c50c72;
+        background-color: $button-color;
     }
 }
 
@@ -305,8 +310,8 @@
 }
 
 .products {
-    box-shadow: 0px 0px 6px 3px #8080802e;
-    border-bottom: 3px dotted grey;
+    box-shadow: 7px 0px 0px 0px #8080800d;
+    border-bottom: 3px dotted #80808045;
 }
 
 #name {
@@ -322,7 +327,7 @@
     display: inline-block;
     font-size: 11px;
     font-weight: 500;
-    background-color: rgba(128, 128, 128, 0.15);
+    background-color: $full-cart-color;
     margin: 5%;
     height: 8em;
     overflow: hidden;
@@ -530,7 +535,6 @@
     .topnav {
         @include top-navbar;
         a {
-            color: rgb(77, 75, 75);
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
