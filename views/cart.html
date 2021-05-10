@@ -12,86 +12,82 @@
 </head>
 
 <body onresize="resizeCartWindow()">
-    <main>
-        <header>
-            <nav class="navbar">
-                <div class="first-box">
-                    <a class="navbar-" href="#">
-                        <img src="../static/images/logo.png" width="100" height="100" alt="cart logo">
+    <header>
+        <nav>
+            <ul class="navbar">
+                <li class="crumb first-box">
+                    <a class="navbar-img" href="#">
+                        <img class="cart-logo" src="../static/images/logo.png" alt="cart logo">
                     </a>
-                </div>
-                <div class="mid-box">
-                    <a href="./main.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">Home</span>
-                    </a>
-                    <a href="./products.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">Products</span>
-                    </a>
-                </div>
-                <div class="last-box">
-                    <a href="./signIn.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">SignIn</span>
-                    </a>
-                    <a href="./register.html">
-                        <span class="navbar-brand mb-0 h1 nav-hide-item">Register</span>
+                </li>
+                <li class="crumb mid-box navbar-brand mb-0 h1 nav-hide-item home-link-text">
+                    <a href="./main.html">Home</a>
+                </li>
+                <li class="crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text">
+                    <a href="./products.html">Products </a>
+                </li>
+                <li class="crumb last-box navbar-brand mb-0 h1">
+                    <a class="nav-item nav-sign-item  nav-hide-item " href="./signIn.html">SignIn</a>
+                    <a class="nav-item nav-register-item  nav-hide-item" href="./register.html">Register
                     </a>
                     <div class="cart">
-                        <a href="./cart.html">
-                            <img src="../static/images/cart.svg" width="30" height="30" alt="cart logo"><span id="items">Items</span>
+                        <a href="#">
+                            <img class="cart-image" src="../static/images/cart.svg" alt="cart logo"><span class="cart-item-text item-number"></span> <span class="cart-item-text item">Items</span>
                         </a>
                     </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section>
+        <div id="mobile-cart-container">
+
+            <div class="w3-card-4 card-1">
+                <header class="cart-w3-container cart-card-title">
+                    <h5 class="cart-item-header"></h5>
+                </header>
+
+                <div class="cart-w3-container cart-data-list">
+                    <div class="w3-container items">
+                    </div>
                 </div>
-            </nav>
-        </header>
-
-        <section>
-            <div id="mobile-cart-container">
-
-                <div class="w3-card-4 card-1">
-                    <header class="cart-w3-container cart-card-title">
-                        <h5 class="cart-item-header"></h5>
-                    </header>
-
-                    <div class="cart-w3-container cart-data-list">
-                        <div class="w3-container items">
-                        </div>
+                <div class="model-content">
+                    <div class="model-content-ad-left">
+                        <img src="../static/images/lowest-price.png" alt="lowest price">
                     </div>
-                    <div class="model-content">
-                        <div class="model-content-ad-left">
-                            <img src="../static/images/lowest-price.png" alt="lowest price">
-                        </div>
-                        <div>
-                            <p class="cart-right-text">You won't find it cheaper anywhere</p>
-                        </div>
+                    <div>
+                        <p class="cart-right-text">You won't find it cheaper anywhere</p>
                     </div>
-                    <footer class="cart-w3-container model-content-footer">
-                        <span class="modal-footer-span">Promo code can be applied on payment page.</span>
-                        <button class="cart-proceed-text" onclick="proceedToBuy()">
+                </div>
+                <footer class="cart-w3-container model-content-footer">
+                    <span class="modal-footer-span">Promo code can be applied on payment page.</span>
+                    <button class="cart-proceed-text" onclick="proceedToBuy()">
                             <span>Proceed to Checkout</span>
                             <span class="totalPrice"> </span><i class='fas fa-arrow-right'></i>
                     </button>
-                    </footer>
-                </div>
+                </footer>
             </div>
-            <div id="cart-empty-container">
-                <div class="w3-card-4 card-1">
-                    <header class="cart-w3-container cart-card-title">
-                        <h5>My Cart</h5>
-                    </header>
+        </div>
+        <div id="cart-empty-container">
+            <div class="w3-card-4 card-1">
+                <header class="cart-w3-container cart-card-title">
+                    <h5>My Cart</h5>
+                </header>
 
-                    <div class="cart-w3-container cart-mid-title">
-                        <p>No items in your cart.</p>
-                        <span>Your favorite item are just a click away.</span>
-                    </div>
-                    <footer class=" cart-footer-text cart-w3-container ">
-                        <h5 onclick="startShop()">Start Shopping</h5>
-                    </footer>
+                <div class="cart-w3-container cart-mid-title">
+                    <p>No items in your cart.</p>
+                    <span>Your favorite item are just a click away.</span>
                 </div>
+                <footer class=" cart-footer-text cart-w3-container ">
+                    <h5 onclick="startShop()">Start Shopping</h5>
+                </footer>
             </div>
-        </section>
-    </main>
-    <script src="../js/common.js"></script>
+        </div>
+    </section>
     <script src="../js/constants.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/common.js"></script>
     <script src="../js/cart.js"></script>
     <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
 

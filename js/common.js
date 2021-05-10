@@ -60,7 +60,7 @@ decreaseItems = (event, selectedValue) => {
 
 const addToCart = function() {
     let data = JSON.parse(localStorage.getItem("selectedCartData")) || [];
-    const itemsElement = document.getElementById("items");
+    const itemsElement = document.querySelector(".cart-item-text");
 
     const addProduct = function(selectedItem) {
         if (!data.includes(selectedItem)) {
@@ -68,8 +68,8 @@ const addToCart = function() {
             localStorage.setItem("selectedCartData", JSON.stringify(updatedData));
             localStorage.setItem("productNumbers", updatedData.length);
             itemsElement.innerHTML = updatedData.length;
-            document.getElementById("itemNotExist").style.display = "block";
-        } else document.getElementById("itemExist").style.display = "block";
+            itemNotExist.style.display = "block";
+        } else ItemExist.style.display = "block";
 
     };
 
@@ -77,7 +77,7 @@ const addToCart = function() {
         let filteredCartData = data.filter(product => product !== selectedItem);
         localStorage.setItem("selectedCartData", JSON.stringify(filteredCartData));
         localStorage.setItem("productNumbers", filteredCartData.length);
-        document.getElementById("items").innerHTML = filteredCartData.length;
+        itemsElement.innerHTML = filteredCartData.length;
         alert('Item is deleted successfully');
         getCartData();
     };
@@ -87,7 +87,7 @@ const addToCart = function() {
     }
 
     const proceedToBuy = function() {
-        document.getElementById("cartModal").style.display = "none";
+        cartModal.style.display = "none";
         alert("Thankyou for doing shopping with us ,waiting for your next arrival here.");
         localStorage.clear();
         window.location.reload();

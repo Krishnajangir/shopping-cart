@@ -5,7 +5,7 @@ resizeCartWindow = () => {
 }
 getCartData = () => {
     cartProductData = JSON.parse(localStorage.getItem("selectedCartData"));
-    document.getElementById("items").innerHTML = (cartProductData.length === null ? 0 : cartProductData.length) + " items";
+    document.querySelector(".cart-item-text").innerHTML = (cartProductData.length === null ? 0 : cartProductData.length);
     if (cartProductData.length !== 0) {
         cartValues = [];
         getProducts().then((data) => {
@@ -24,40 +24,20 @@ getCartData = () => {
 };
 
 getMobileCartData = (cartValues, itemNumber) => {
+    let template = new Templates;
     let cartItem = '';
     priceValues = [];
     quantity = 1;
+    const cartItemSelector = document.querySelector(".items");
+    const emptyContainer = document.getElementById('cart-empty-container');
+    const cartItemValue = document.querySelector(".cart-item-header");
     cartValues.forEach((val) => {
         priceValues.push(val.price);
         localStorage.setItem('priceValues', priceValues);
-        cartItem += `<div class="cart-mobile">
-      <img
-        id="imgg"
-        src="${val.imageURL}"
-        alt="cart-images"
-        height="100px"
-      />
-      <div>
-        <h4 class="modal-text">${val.name}</h4>
-        <i
-          onclick="increaseItems(event , '${val.price}')"
-          class="fa fa-plus cart-icon-class"
-        ></i>
-        <input class="itemQuantity" value="${quantity}" disabled />
-        <i
-          onclick="decreaseItems(event , '${val.price}')"
-          class="fa fa-minus cart-icon-class"
-        ></i>
-        <i class="fa fa-times" aria-hidden="true"></i>
-        <span>Rs. </span><span class="price">${val.price} </span>
-        <div class="total-cart-cost">
-          <span>Total: Rs. </span><span class="priceNew">${val.price} </span>
-        </div>
-      </div> <span onclick="addToCart().removeProduct('${val.sku}')"><i class="fa fa-trash " ></i></span>
-    </div>`;
-        document.querySelector(".items").innerHTML = cartItem;
-        document.getElementById('cart-empty-container').style.display = "none";
-        document.querySelector(".cart-item-header").innerHTML = `My Cart (${itemNumber} items) `;
+        cartItem += template.cartItem(val, quantity);
+        cartItemSelector.innerHTML = cartItem;
+        emptyContainer.style.display = "none";
+        cartItemValue.innerHTML = `My Cart (${itemNumber} items) `;
 
     })
     let prices = localStorage.getItem('priceValues').split(',');

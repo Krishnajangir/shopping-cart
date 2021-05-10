@@ -8,6 +8,8 @@ async function getProductCategories() {
 
 categoriesInterface = (showSlides) => {
     let homeItems = '';
+    const template = new Templates;
+    itemNumber.innerHTML = localStorage.getItem("productNumbers") || 0;
     getProductCategories().then((data) => {
         data.forEach((val, index) => {
             console.log('index', index)
@@ -15,41 +17,9 @@ categoriesInterface = (showSlides) => {
                 val.imageUrl = '../static/images/fallback-image.png"';
             }
             if (index % 2 === 0) {
-                homeItems +=
-                    `<div class="badge">
-                    <div class="w3-panel w3-card" style="display: flex">
-                      <img
-                        class="odd-img"
-                        src="${val.imageUrl}"
-                        height="30%"
-                        width="30%"
-                      />
-                      <div class="own-cat-info">
-                        <h1>${val.name}</h1>
-                        <p>${val.description}</p>
-                        <button onclick='goToProductsList("${val.key}")' id="explore">
-                          Explore ${val.key}
-                        </button>
-                      </div>
-                    </div>
-                    <div class="gred-shadow"></div>
-                  </div>
-                  `;
+                homeItems += template.evenCategory(val);
             } else {
-                homeItems +=
-                    `<div class="w3-panel w3-card" style="display:flex;">
-                    <div class="own-cat-info even-text">
-                        <h1>
-                            ${val.name}</h1>
-                        <p>
-                            ${val.description} </p><button onclick='goToProductsList("${val.key}")' id='explore'>
-                            Explore
-                            ${val.key}
-                        </button>
-                    </div> <img class="even-img" src='${val.imageUrl}' height="30%" width="30%" />
-                </div>
-                <div class='gred-shadow'></div>
-                </div>`;
+                homeItems += template.oddCategory(val);
             }
             document.querySelector(".category-list").innerHTML = homeItems;
         })
@@ -79,10 +49,10 @@ function showSlides(n) {
         slides[i].style.display = "none";
     }
     for (let i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].className = dots[i].className.replace(" active-dot", "");
     }
     slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
+    dots[slideIndex - 1].className += " active-dot";
 }
 
 goToProductsList = (text) => {

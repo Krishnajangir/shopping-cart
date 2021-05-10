@@ -1,20 +1,17 @@
 @import './variable.scss';
-@mixin home-text-alignment {
-    text-align: center;
-}
-
+@import './globalMixin.scss';
 #category-list {
     display: flex;
     flex-direction: column;
 }
 
-.gred-shadow {
+.bottom-shadow-line {
     height: 3px;
     background: linear-gradient(90deg, #f5f5f52e 13%, #9e9e9e 58%, #f5f5f55c 84%);
 }
 
 .own-cat-info {
-    @include home-text-alignment;
+    @include text-center-alignment;
     width: 47em;
     font-weight: 600;
     h1 {
@@ -37,7 +34,7 @@
 }
 
 .slideshow-container {
-    max-width: 1000px;
+    max-width: 86.5em;
     position: relative;
     margin: auto;
 }
@@ -67,10 +64,10 @@
     top: 50%;
     width: auto;
     margin-top: -22px;
-    padding: 16px;
+    padding: 0.7em;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.1em;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -82,10 +79,10 @@
     top: 50%;
     width: auto;
     margin-top: -22px;
-    padding: 16px;
+    padding: 0.7em;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 1.1em;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
@@ -114,7 +111,7 @@
     position: absolute;
     bottom: 8px;
     width: 100%;
-    @include home-text-alignment;
+    @include text-center-alignment;
 }
 
 .numbertext {
@@ -127,9 +124,9 @@
 
 .dot {
     cursor: pointer;
-    height: 4px;
-    width: 4px;
-    margin: 0px 8px;
+    height: 0.4em;
+    width: 0.4em;
+    margin: 0em 0.9em;
     background-color: #00000061;
     border-radius: 50%;
     display: inline-block;
@@ -162,9 +159,10 @@
 }
 
 .silder-dot {
-    @include home-text-alignment;
     display: flex;
-    justify-content: center;
+    position: absolute;
+    left: 37em;
+    top: 16em;
 }
 
 .home-cart {
@@ -176,14 +174,14 @@
 }
 
 .slide-image {
-    height: 15em;
-    width: 80em;
+    width: 100%;
+    height: 20em;
 }
 
 .cart-logo {
     height: 7em;
     position: relative;
-    left: 6em;
+    left: 2em;
     height: 5.5em;
 }
 
@@ -203,14 +201,21 @@
 .cart-item-text {
     position: relative;
     top: 0.4em;
-    left: 0.5em;
     font-weight: 500;
+}
+
+.item-number {
+    left: 0.1em;
 }
 
 .w3-panel {
     display: flex;
     justify-content: space-around;
-    margin: 0 10% 0 10%;
+    margin: 0 11em 0 11em;
+}
+
+.item {
+    left: 0.2em;
 }
 
 @media only screen and (max-width: 700px) {
@@ -234,5 +239,22 @@
         width: 53%;
         position: relative;
         top: 2em;
+    }
+    .cart-logo {
+        position: relative;
+        left: 0em;
+        height: 4.3em;
+    }
+    .silder-dot {
+        display: flex;
+        position: absolute;
+        left: 9em;
+        top: 10em;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .slider-image {
+        width: 100%;
     }
 }

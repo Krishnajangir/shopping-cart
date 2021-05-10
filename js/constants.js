@@ -20,3 +20,9 @@ const EXPLORE_TYPE = {
     'baby': 'babies',
 
 }
+
+
+const itemNotExist = document.getElementById("itemNotExist");
+const ItemExist = document.getElementById("itemExist");
+const cartModal = document.getElementById("cartModal");
+const itemNumber = document.querySelector(".item-number");

@@ -54,7 +54,7 @@
 /* Handle on hover */
 
 .cart-icon-class {
-    background-color: #ab47bc;
+    background-color: $button-color;
     padding: 2%;
     color: white;
 }
@@ -64,7 +64,7 @@
 }
 
 #cart-title {
-    background-color: #ab47bc;
+    background-color: $button-color;
     padding: 3%;
     text-align: center;
 }
@@ -210,7 +210,7 @@
 }
 
 .cart-footer-text {
-    background-color: #c50c72;
+    background-color: $button-color;
     color: white;
     text-align: center;
     h5 {
@@ -231,7 +231,7 @@
     border: none;
     margin: 2%;
     height: 5em;
-    background-color: #c50c72;
+    background-color: $button-color;
     justify-content: space-between;
     color: white;
     cursor: pointer;

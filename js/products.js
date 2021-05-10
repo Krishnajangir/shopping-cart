@@ -1,7 +1,8 @@
+let template = new Templates;
+
 productInterface = () => {
-    document.getElementById("items").innerHTML = localStorage.getItem("productNumbers") || 0;
+    itemNumber.innerHTML = localStorage.getItem("productNumbers") || 0;
     const selectedValue = gatCurrentValue();
-    let template = new Templates;
     getProducts().then((data) => {
         let elements = "";
         const dataToRender = (selectedValue === 'All') ? data : data.filter(d => d.category === PRODUCT_KEYS[selectedValue]);
@@ -17,7 +18,7 @@ gatCurrentValue = () => {
 };
 
 changeLinkItem = () => {
-    let link = document.getElementById("myLinks");
+    let link = document.querySelector(".myLinks");
     if (link.style.display === "block") {
         link.style.display = "none";
     } else {
@@ -53,26 +54,7 @@ cartInterface = (cartValues, itemNumber) => {
     cartValues.forEach((val) => {
         priceValues.push(val.price);
         localStorage.setItem('priceValues', priceValues);
-        cartUI += `<div class="cart-element">
-        <img id="imgg" src="${val.imageURL}" alt="cart-images" height="100px" />
-        <divb class="cart-item-detail">
-          <h4 class="modal-text">${val.name}</h4>
-          <i
-            onclick="increaseItems(event , '${val.price}')"
-            class="fa fa-plus cart-icon-class"
-          ></i>
-          <input class="itemQuantity" value="${quantity}" disabled />
-          <i
-            onclick="decreaseItems(event , '${val.price}')"
-            class="fa fa-minus cart-icon-class"
-          ></i>
-          <i class="fa fa-times" aria-hidden="true"></i>
-        <span>Rs. </span><span class="price">${val.price} </span>
-          <div class="total-cart-cost">
-            <span>Total: Rs. </span><span class="priceNew">${val.price} </span>
-          </div>
-        </divb><span onclick="addToCart().removeProduct('${val.sku}')"><i class="fa fa-trash " ></i></span>
-      </div>`;
+        cartUI += template.cartItem(val, quantity);
         document.querySelector(".items").innerHTML = cartUI;
         document.getElementById("cartModal").style.display = "block";
         document.querySelector(
@@ -107,7 +89,7 @@ emptyCartInterface = () => {
 };
 
 resizeCartWindow = () => {
-    if (document.body.clientWidth > 700) document.getElementById("myLinks").style.display = "block";
+    if (document.body.clientWidth > 700) document.querySelector(".myLinks").style.display = "block";
 }
 
 closeCartModal = () => {

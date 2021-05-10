@@ -25,13 +25,13 @@
                 <li class="crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text">
                     <a href="./products.html">Products </a>
                 </li>
-                <li class="crumb last-box navbar-brand mb-0 h1 nav-hide-item">
-                    <a class="nav-item" href="./signIn.html">SignIn</a>
-                    <a class="nav-item" href="./register.html">Register
+                <li class="crumb last-box navbar-brand mb-0 h1">
+                    <a class="nav-item nav-sign-item  nav-hide-item " href="./signIn.html">SignIn</a>
+                    <a class="nav-item nav-register-item  nav-hide-item" href="./register.html">Register
                     </a>
                     <div class="cart">
                         <a href="#">
-                            <img class="cart-image" src="../static/images/cart.svg" alt="cart logo"><span class="cart-item-text" id="items">Items</span>
+                            <img class="cart-image" src="../static/images/cart.svg" alt="cart logo"><span class="cart-item-text item-number"></span> <span class="cart-item-text item">Items</span>
                         </a>
                     </div>
                 </li>
@@ -56,8 +56,8 @@
                 <img class="slide-image" src="../static/images/offers/offer5.jpg" alt="offer image">
             </li>
         </ul>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick="plusSlides(-1)">PREV</a>
+        <a class="next" onclick="plusSlides(1)">NEXT</a>
         <ul class="crumb silder-dot">
             <li>
                 <span class="dot" onclick="currentSlide(1)"></span>
@@ -75,7 +75,7 @@
                 <span class="dot" onclick="currentSlide(5)"></span>
             </li>
         </ul>
-        <hr class="gred-shadow ">
+        <hr class="bottom-shadow-line">
     </section>
 
     <section class="w3-container category-list">
@@ -86,8 +86,8 @@
         </div>
     </footer>
     <script src="../js/constants.js "></script>
+    <script src="../js/template.js"></script>
     <script src="../js/home.js "></script>
-
 </body>
 
 </html>
