@@ -1,11 +1,12 @@
 @import './variable.scss';
+@import './globalMixin.scss';
 .container-fluid,
 .flex-container {
-    display: flex;
+    @include flex-prop;
 }
 
 .login-head-text {
-    display: flex;
+    @include flex-prop;
     flex-direction: column;
     margin-right: 3em;
     .login-heading {
@@ -16,27 +17,18 @@
         font-weight: bold;
         font-size: 1.8em;
     }
-    p {
+    .paragraph-text {
         font-size: 13px;
         font-weight: 500;
     }
 }
 
-.register-form {
-    margin-right: 10em;
-}
-
+.register-form,
 .login-form {
     margin-right: 10em;
 }
 
 .register-box {
-    h2 {
-        margin: 0 0 30px;
-        padding: 0;
-        color: #fff;
-        text-align: center;
-    }
     .user-box {
         position: relative;
         width: 150%;
@@ -161,9 +153,21 @@
     }
 }
 
+.register-cart-prop {
+    background-color: #eeeeee;
+    padding: 1em;
+    position: relative;
+    width: 9em;
+    top: 20% !important;
+}
+
+.register-link-text a {
+    color: $nav-item-text-color !important;
+}
+
 .signIn-footer {
     background-color: $full-cart-color;
-    display: flex;
+    @include flex-prop;
 }
 
 .signIn-text {
@@ -174,7 +178,7 @@
 }
 
 .signIn-card {
-    display: flex;
+    @include flex-prop;
     justify-content: space-evenly;
     flex-wrap: wrap;
     box-shadow: none !important;
@@ -198,13 +202,30 @@
     color: black;
 }
 
-@media only screen and (max-width:500px) {
+@media only screen and (max-width:360px) {
     .login-box {
         position: relative;
-        right: 2em;
+        left: 2.5em;
     }
     .register-form {
         position: relative;
         right: 4em;
+    }
+    .register-form {
+        left: 5em;
+    }
+}
+
+@media only screen and (min-width:370px) and (max-width:540px) {
+    .register-form,
+    .signIn-card,
+    .login-head-text {
+        margin: $set-zero-value;
+    }
+}
+
+@media only screen and (min-width:768px) and (max-width:1024px) {
+    .register-form {
+        margin: $set-zero-value;
     }
 }

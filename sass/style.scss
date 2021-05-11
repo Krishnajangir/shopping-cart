@@ -27,7 +27,7 @@ body {
 .navbar {
     @include navbar-prop;
     padding-left: 10%;
-    margin-top: 0em;
+    margin-top: $set-zero-value;
 }
 
 .nav-hide-item {
@@ -153,40 +153,47 @@ a {
     }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 320px) {
     .cart {
         background-color: #8080801c;
         padding: 4%;
         position: relative;
-        top: 11%;
-        left: 12em;
-        width: 8em;
-        height: 4em;
-    }
-    .mid-box {
-        flex: 5;
-        position: relative;
-    }
-    .product-link-text a {
-        right: 10em;
-    }
-    .last-box a {
-        position: relative;
-        padding-left: 1em;
-        top: 1em;
-        margin-bottom: -0.5em;
+        top: 7%;
+        float: right;
+        width: 7em !important;
+        height: 5em;
+        left: 10em;
     }
     .footer-element {
-        margin: 0em;
-        padding-left: 2em;
-        font-size: 0.9em;
+        margin: $set-zero-value;
+        font-size: 0.8em;
     }
 }
 
-@media only screen and (min-width:750px) and (max-width: 1024px) {
+@media only screen and (min-width:360px) and (max-width:540px) {
+    .cart {
+        background-color: #8080801c;
+        padding: 4%;
+        position: relative;
+        top: $set-zero-value;
+        float: right;
+        width: 7em !important;
+        height: 5em;
+        left: 11em;
+    }
+    .last-box a {
+        top: 1em;
+    }
     .navbar {
-        @include navbar-prop;
-        padding-left: 0%;
+        padding: $set-zero-value;
+        height: 5.4em;
+    }
+    .footer-element {
+        margin: $set-zero-value;
+        font-size: 0.9em;
+    }
+    .register-cart-prop {
+        top: 0% !important;
     }
 }
 
@@ -201,29 +208,43 @@ a {
 }
 
 @media only screen and (min-width:768px) and (max-width:1024px) {
-    .footer-element {
-        padding-left: 27em;
+    .navbar {
+        padding-right: 3em;
+        margin-top: $set-zero-value;
+        padding-left: $set-zero-value;
     }
     .cart {
         left: 6.5em;
         width: 10em;
         padding: 0.5em;
+        height: 4em;
+        top: 7%;
     }
     .nav-sign-item {
-        top: 0em !important;
-        left: 5em;
+        top: $set-zero-value !important;
+        left: 8em;
     }
     .nav-register-item {
-        top: 0em !important;
-        left: 5em;
+        top: $set-zero-value !important;
+        left: 8em;
     }
     .cart-logo {
-        left: 0em;
+        left: $set-zero-value;
     }
     .home-link-text a {
-        padding-left: 5em;
+        left: 8em;
     }
     .product-link-text a {
-        right: 14em;
+        right: 2em;
+    }
+    .w3-panel {
+        margin: $set-zero-value;
+    }
+    .login-form,
+    .login-head-text {
+        margin-right: $set-zero-value;
+    }
+    .register-cart-prop {
+        top: 12% !important;
     }
 }

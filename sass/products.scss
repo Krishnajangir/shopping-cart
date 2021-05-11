@@ -1,76 +1,11 @@
 @import './variable.scss';
-@mixin products-main-class {
+@import './globalMixin.scss';
+.product-list {
     display: inline-grid;
     background-color: white;
-}
-
-@mixin top-navbar {
-    overflow: hidden;
-    background-color: $full-cart-color;
-    position: relative;
-    width: 100vw;
-    bottom: 1em;
-    padding: 0em;
-}
-
-@mixin flex-property {
-    display: flex;
-}
-
-@mixin btn-property {
-    cursor: pointer;
-}
-
-@mixin modal-prop {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-@mixin img-prop {
-    width: 12em;
-    height: 17em;
-}
-
-@mixin text-prop {
-    display: inline-block;
-    background-color: #80808026;
-    margin: 3%;
-    overflow: hidden;
-    text-overflow: clip;
-    height: 8em;
-}
-
-@mixin footer-prop {
-    justify-content: space-evenly;
-    position: relative;
-    font-size: 20px;
-    flex-wrap: wrap;
-    flex-direction: column;
-}
-
-@mixin span-prop {
-    padding-left: 20%;
-    font-size: 16px;
-}
-
-@mixin product-footer {
-    background-color: rgb(173, 73, 90);
-    padding: 28px;
-    margin-bottom: 22px;
-}
-
-@mixin footer-btn {
-    width: 100%;
-    position: relative;
-    color: white;
-}
-
-#own-products {
-    @include products-main-class;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 10px;
-    padding: 10px;
+    grid-gap: 1em;
+    padding: 1em;
     width: 300em;
 }
 
@@ -79,7 +14,12 @@
 }
 
 .topnav {
-    @include top-navbar;
+    overflow: hidden;
+    background-color: $full-cart-color;
+    position: relative;
+    width: 100vw;
+    bottom: 1em;
+    padding: $set-zero-value;
     a:active {
         background: red;
         color: pink;
@@ -94,7 +34,7 @@
         color: grey;
         display: block;
         font-weight: 600;
-        @include btn-property;
+        @include btn-cursor-prop;
     }
     a:hover {
         color: black;
@@ -121,18 +61,18 @@
 }
 
 .side-nav {
-    @include flex-property;
+    @include flex-prop;
     margin: 0 11em 0 12em;
 }
 
 .own-footer {
     background-color: $full-cart-color;
-    @include flex-property;
+    @include flex-prop;
     justify-content: space-between;
 }
 
 .fa-trash {
-    @include btn-property;
+    @include btn-cursor-prop;
 }
 
 .footer-text {
@@ -210,19 +150,19 @@
     &:focus {
         color: #000;
         text-decoration: none;
-        @include btn-property;
+        @include btn-cursor-prop;
     }
 }
 
 .modal-header {
-    @include modal-prop;
+    @include modal-common-prop;
 }
 
 .modal-body {
     padding: 2px 16px;
     .body-img {
         box-shadow: 1px 2px 12px 1px #8080802b;
-        @include flex-property;
+        @include flex-prop;
         span {
             position: relative;
             top: 17px;
@@ -232,7 +172,7 @@
     }
     .body-content {
         box-shadow: 1px 2px 12px 1px #8080802b;
-        @include flex-property;
+        @include flex-prop;
         margin: 2% 0% 5% 0%;
         span {
             flex: 1;
@@ -248,7 +188,7 @@
 }
 
 .modal-footer {
-    @include modal-prop;
+    @include modal-common-prop;
     p {
         color: black;
         text-align: center;
@@ -325,15 +265,6 @@
     border-bottom: 3px dotted #80808045;
 }
 
-#name {
-    font-size: 15px;
-    margin: 1% 1% 7% 1%;
-    text-align: left;
-    height: 10%;
-    font-weight: bolder;
-    margin: 4%;
-}
-
 .text-css {
     display: inline-block;
     font-size: 11px;
@@ -350,7 +281,7 @@
 }
 
 .cart-element {
-    @include flex-property;
+    @include flex-prop;
     box-shadow: 0px 1px 2px 1px #80808069;
     margin: 1%;
     i {
@@ -371,13 +302,13 @@
 }
 
 .model-content {
-    @include flex-property;
+    @include flex-prop;
     margin: 6%;
     box-shadow: 1px 1px 3px 1px #80808047;
 }
 
 .model-content-footer {
-    @include flex-property;
+    @include flex-prop;
     flex-direction: column;
 }
 
@@ -393,14 +324,14 @@
 }
 
 .model-content-footer-button {
-    @include flex-property;
+    @include flex-prop;
     border: none;
     margin: 2%;
     height: 3em;
     background-color: $button-color;
     justify-content: space-between;
     color: white;
-    @include btn-property;
+    @include btn-cursor-prop;
 }
 
 .model-content-footer-button span {
@@ -419,7 +350,7 @@
 }
 
 .footer {
-    @include flex-property;
+    @include flex-prop;
     justify-content: space-between;
     padding-bottom: 4%;
     span {
@@ -444,6 +375,12 @@
 .w3-card-4 {
     height: 100%;
     box-shadow: none;
+    span {
+        font-weight: 500;
+    }
+    p {
+        font-weight: 700;
+    }
 }
 
 .cart-element div {
@@ -460,7 +397,7 @@
 
 .w3-card-4 {
     p {
-        font-weight: bolder;
+        font-weight: 700;
         font-size: 15px;
         padding: 4%;
         height: 15%;
@@ -487,53 +424,56 @@
         @include text-prop;
     }
     .footer {
-        @include flex-property;
+        @include flex-prop;
         @include footer-prop;
     }
     .side-nav {
-        @include flex-property;
+        @include flex-prop;
         flex-wrap: wrap;
         margin: 0;
     }
     .base-footer {
-        @include flex-property;
+        @include flex-prop;
         flex-direction: column;
     }
     .header {
         position: relative;
         img {
-            @include img-prop;
+            @include image-size-prop;
         }
     }
     .w3-card-4 {
         p {
             font-weight: bolder;
-            font-size: 23px;
+            font-size: 1.5em;
             margin: 2%;
-            height: 25%;
         }
         span {
             @include span-prop;
+            padding-left: 0em !important;
         }
     }
     .desc {
         padding: 1%;
     }
     .w3-card-4 {
-        @include flex-property;
+        @include flex-prop;
         flex-direction: column;
     }
     .base-header {
-        @include flex-property;
+        @include flex-prop;
         margin-top: 2em;
     }
-    #own-products {
-        @include products-main-class;
+    .product-list {
+        display: inline-grid;
+        background-color: white;
         grid-template-columns: repeat(1, 1fr);
         padding: 10px;
     }
     .footer {
-        @include product-footer;
+        background-color: rgb(173, 73, 90);
+        padding: 28px;
+        margin-bottom: 22px;
     }
     .footer button {
         @include footer-btn;
@@ -544,7 +484,12 @@
         height: 20em;
     }
     .topnav {
-        @include top-navbar;
+        overflow: hidden;
+        background-color: $full-cart-color;
+        position: relative;
+        width: 100vw;
+        bottom: 1em;
+        padding: $set-zero-value;
         a {
             padding: 14px 16px;
             text-decoration: none;
@@ -570,10 +515,6 @@
             color: white;
         }
     }
-    /* Style navigation menu links */
-    /* Style the hamburger menu */
-    /* Add a grey background color on mouse-over */
-    /* Style the active link (or home/logo) */
     .active {
         background-color: rgb(194, 74, 94);
         color: black;
@@ -606,25 +547,15 @@
 
 .modal {
     display: none;
-    /* Hidden by default */
     position: fixed;
-    /* Stay in place */
     z-index: 1;
-    /* Sit on top */
     padding-top: 100px;
-    /* Location of the box */
     left: 0;
     top: 0;
     width: 100%;
-    /* Full width */
     height: 100%;
-    /* Full height */
     overflow: auto;
-    /* Enable scroll if needed */
 }
-
-
-/* Modal Content */
 
 .modal-content {
     background-color: #fefefe;
@@ -647,7 +578,7 @@
     &:focus {
         color: #000;
         text-decoration: none;
-        @include btn-property;
+        @include btn-cursor-prop;
     }
 }
 
@@ -674,7 +605,7 @@
         bottom: 0%;
     }
     .side-nav {
-        @include flex-property;
+        @include flex-prop;
         margin: 0%;
     }
     .cart-full-content {
@@ -689,8 +620,9 @@
         top: 4%;
         height: 40em !important;
     }
-    #own-products {
-        @include products-main-class;
+    .product-list {
+        display: inline-grid;
+        background-color: white;
         grid-template-columns: repeat(2, 1fr);
         grid-gap: 5px;
         padding: 10px;
@@ -702,30 +634,32 @@
         @include text-prop;
     }
     .footer {
-        @include flex-property;
+        @include flex-prop;
         @include footer-prop;
     }
     .footer {
-        @include product-footer;
+        background-color: rgb(173, 73, 90);
+        padding: 28px;
+        margin-bottom: 22px;
     }
     .footer button {
         @include footer-btn;
     }
     .base-footer {
-        @include flex-property;
+        @include flex-prop;
         flex-direction: column;
     }
     .header {
         position: relative;
         img {
-            @include img-prop;
+            @include image-size-prop;
         }
     }
     .w3-card-4 {
         p {
             font-weight: bolder;
-            font-size: 18px;
-            margin: 2%;
+            font-size: 1.7em;
+            margin-bottom: 1em;
         }
         span {
             @include span-prop;
@@ -735,18 +669,19 @@
         padding: 1%;
     }
     .w3-card-4 {
-        @include flex-property;
+        @include flex-prop;
         flex-direction: column;
     }
     .base-header {
-        @include flex-property;
+        @include flex-prop;
         margin-top: 2em;
     }
 }
 
 @media only screen and (min-width: 1100px) {
-    #own-products {
-        @include products-main-class;
+    .product-list {
+        display: inline-grid;
+        background-color: white;
         grid-template-columns: repeat(4, 1fr);
         grid-gap: 10px;
         padding: 10px;

@@ -4,7 +4,6 @@
 
 @mixin flex-prop {
     display: flex;
-    flex-direction: column;
 }
 
 @mixin grid-prop {

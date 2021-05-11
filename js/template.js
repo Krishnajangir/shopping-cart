@@ -21,14 +21,12 @@
 
      evenCategory = function(category) {
          return `<div class="badge">
-         <div class="w3-panel w3-card" style="display: flex">
+         <div class="w3-panel w3-card">
            <img
              class="odd-img"
              src="${category.imageUrl}"
-             height="30%"
-             width="30%"
            />
-           <div class="own-cat-info">
+           <div class="own-category-info">
              <h1>${category.name}</h1>
              <p>${category.description}</p>
              <button onclick='goToProductsList("${category.key}")' id="explore">
@@ -36,13 +34,13 @@
              </button>
            </div>
          </div>
-         <div class="bottom-shadow-line"></div>
+         <hr class="bottom-shadow-line">
        </div>`
      };
 
      oddCategory = function(category) {
-         return `<div class="w3-panel w3-card" style="display:flex;">
-        <div class="own-cat-info even-text">
+         return `<div class="w3-panel w3-card" >
+        <div class="own-category-info even-text">
             <h1>
                 ${category.name}</h1>
             <p>
@@ -52,7 +50,7 @@
             </button>
         </div> <img class="even-img" src='${category.imageUrl}' height="30%" width="30%" />
     </div>
-    <div class='bottom-shadow-line'></div>
+    <hr class='bottom-shadow-line'>
     </div>`
      }
 

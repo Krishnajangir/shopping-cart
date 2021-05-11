@@ -7,7 +7,7 @@ productInterface = () => {
         let elements = "";
         const dataToRender = (selectedValue === 'All') ? data : data.filter(d => d.category === PRODUCT_KEYS[selectedValue]);
         dataToRender.forEach((productData) => {
-            elements += template.product(productData)
+            elements += template.product(productData);
             document.getElementById("own-products").innerHTML = elements;
         })
     });

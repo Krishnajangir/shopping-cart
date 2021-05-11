@@ -1,8 +1,4 @@
 @import './variable.scss';
-@mixin cart-property {
-    float: right;
-}
-
 .cart-elements {
     display: flex;
     justify-content: center;
@@ -15,7 +11,7 @@
 }
 
 .card-1 header {
-    font-size: 19px;
+    font-size: 1em;
 }
 
 .cart-card {
@@ -60,7 +56,7 @@
 }
 
 .total-cart-cost {
-    @include cart-property;
+    float: right;
 }
 
 #cart-title {
@@ -140,7 +136,7 @@
 
 .pay-img {
     width: 11%;
-    @include cart-property;
+    float: right;
 }
 
 .shop-img {
@@ -177,7 +173,7 @@
 
 .cart-modal-close {
     color: #aaaaaa;
-    @include cart-property;
+    float: right;
     font-size: 28px;
     font-weight: bold;
     &:hover,
