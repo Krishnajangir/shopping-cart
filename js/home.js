@@ -9,7 +9,6 @@ async function getProductCategories() {
 categoriesInterface = (showSlides) => {
     let homeItems = '';
     const template = new Templates;
-    itemNumber.innerHTML = localStorage.getItem("productNumbers") || 0;
     getProductCategories().then((data) => {
         data.forEach((val, index) => {
             console.log('index', index)

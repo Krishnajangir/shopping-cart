@@ -20,6 +20,7 @@
     width: 100vw;
     bottom: 1em;
     padding: $set-zero-value;
+    margin-top: 0em;
     a:active {
         background: red;
         color: pink;
@@ -414,6 +415,10 @@
 }
 
 @media only screen and (max-width: 700px) {
+    .mySlides {
+        position: relative;
+        right: 1em;
+    }
     .cart-full-content {
         left: 0% !important;
     }
@@ -490,6 +495,7 @@
         width: 100vw;
         bottom: 1em;
         padding: $set-zero-value;
+        margin-top: 0em;
         a {
             padding: 14px 16px;
             text-decoration: none;

@@ -11,14 +11,6 @@ body {
     line-height: 1.5 !important;
 }
 
-@mixin navbar-prop {
-    background-color: white;
-    box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
-    position: static;
-    display: flex;
-    padding-right: 7em;
-}
-
 .main {
     height: 100%;
     width: 100%;
@@ -35,8 +27,8 @@ body {
     bottom: 4%;
     color: #797f8b;
     font-weight: 700;
-    font-size: 13px;
-    margin-bottom: 10px;
+    font-size: 1em;
+    margin-bottom: 1em;
 }
 
 .first-box {
@@ -62,7 +54,7 @@ body {
 .product-link-text a {
     position: relative;
     top: 3em;
-    right: 12em;
+    right: 14em;
     cursor: pointer;
 }
 
@@ -235,7 +227,7 @@ a {
         left: 8em;
     }
     .product-link-text a {
-        right: 2em;
+        right: 4em;
     }
     .w3-panel {
         margin: $set-zero-value;

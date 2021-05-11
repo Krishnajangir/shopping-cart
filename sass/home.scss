@@ -45,10 +45,6 @@
     box-shadow: none !important;
 }
 
-.mySlides {
-    display: none;
-}
-
 .crumb {
     list-style: none;
 }
@@ -56,21 +52,7 @@
 
 /* Next & previous buttons */
 
-.prev {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    margin-top: -22px;
-    padding: 0.7em;
-    color: white;
-    font-weight: bold;
-    font-size: 1.1em;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-
+.prev,
 .next {
     cursor: pointer;
     position: absolute;
@@ -84,8 +66,6 @@
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
     user-select: none;
-    right: 0;
-    border-radius: 3px 0 0 3px;
 }
 
 .prev:hover,
@@ -235,7 +215,7 @@
         left: $set-zero-value;
     }
     .own-category-info p {
-        width: 16em;
+        width: 13em;
         font-size: 13px;
         color: $title-color;
     }

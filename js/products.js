@@ -1,7 +1,6 @@
 let template = new Templates;
 
 productInterface = () => {
-    itemNumber.innerHTML = localStorage.getItem("productNumbers") || 0;
     const selectedValue = gatCurrentValue();
     getProducts().then((data) => {
         let elements = "";

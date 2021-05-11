@@ -11,19 +11,12 @@
     background-color: white;
 }
 
-@mixin navbar-prop {
-    overflow: hidden;
-    background-color: $full-cart-color;
-    position: relative;
-    width: 100vw;
-}
-
 @mixin btn-cursor-prop {
     cursor: pointer;
 }
 
 @mixin modal-common-prop {
-    padding: 2px 16px;
+    padding: 0.2em 1em;
     background-color: #5cb85c;
     color: white;
 }
@@ -36,7 +29,7 @@
 @mixin footer-prop {
     justify-content: space-evenly;
     position: relative;
-    font-size: 20px;
+    font-size: 1.2em;
     flex-wrap: wrap;
     flex-direction: column;
 }
@@ -58,5 +51,13 @@
 
 @mixin span-prop {
     padding-left: 20%;
-    font-size: 16px;
+    font-size: 1em;
+}
+
+@mixin navbar-prop {
+    background-color: white;
+    box-shadow: rgba(128, 128, 128, 0.16) 0px 4px 9px;
+    position: static;
+    display: flex;
+    padding-right: 7em;
 }
