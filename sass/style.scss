@@ -22,6 +22,10 @@ body {
     margin-top: $set-zero-value;
 }
 
+.navbar__crumb {
+    list-style: none;
+}
+
 .nav-hide-item {
     position: relative;
     bottom: 4%;

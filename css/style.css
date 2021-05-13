@@ -281,9 +281,6 @@
 .w3-card-2 {
   box-shadow: none !important; }
 
-.crumb {
-  list-style: none; }
-
 /* Next & previous buttons */
 .prev,
 .next {
@@ -746,8 +743,9 @@
 
 .cart-full-content {
   width: 30em !important;
-  left: 20% !important;
-  height: 40em !important; }
+  left: 25% !important;
+  height: 40em !important;
+  bottom: 2em; }
 
 .empty-modal-content {
   width: 30em !important;
@@ -1234,6 +1232,9 @@ body {
   padding-right: 7em;
   padding-left: 10%;
   margin-top: 0em; }
+
+.navbar__crumb {
+  list-style: none; }
 
 .nav-hide-item {
   position: relative;
