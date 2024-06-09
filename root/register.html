@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Shopping Cart</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li class="navbar__crumb first-box">
+            <a class="navbar-img" href="#">
+              <img
+                class="cart-logo"
+                src="../static/images/logo.png"
+                alt="cart logo"
+              />
+            </a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item home-link-text register-link-text"
+          >
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text register-link-text"
+          >
+            <a href="./products.html">Products </a>
+          </li>
+          <li class="navbar__crumb last-box navbar-brand mb-0 h1">
+            <a class="nav-item nav-sign-item nav-hide-item" href="./signIn.html"
+              >SignIn</a
+            >
+            <a
+              class="nav-item nav-register-item nav-hide-item"
+              href="./register.html"
+              >Register
+            </a>
+            <div class="cart register-cart-prop">
+              <a href="#">
+                <img
+                  class="cart-image"
+                  src="../static/images/cart.svg"
+                  alt="cart logo"
+                /><span class="cart-item-text item-number"></span>
+                <span class="cart-item-text item">Items</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="w3-container w3-panel w3-card w3-white signIn-card">
+      <div class="login-head-text">
+        <h1 class="register-heading">Signup</h1>
+        <p class="paragraph-text">
+          We do not share your personal details with anyone.
+        </p>
+      </div>
+      <div class="register-form register-box">
+        <form>
+          <div class="user-box">
+            <input class="green-border" type="email" name="email" required="" />
+            <label>First Name</label>
+          </div>
+          <div class="user-box">
+            <input
+              class="green-border"
+              type="password"
+              name="password"
+              required=""
+            />
+            <label>Last Name</label>
+          </div>
+          <div class="user-box">
+            <input class="green-border" type="email" name="email" required="" />
+            <label>Email</label>
+          </div>
+          <div class="user-box">
+            <input
+              class="green-border"
+              type="password"
+              name="password"
+              required=""
+            />
+            <label>Password</label>
+          </div>
+          <div class="user-box">
+            <input class="green-border" type="email" name="email" required="" />
+            <label>Confirm Password</label>
+          </div>
+          <div class="user-box btn" onclick="registerUser()">Sign Up</div>
+        </form>
+      </div>
+    </section>
+    <footer class="footer-layout">
+      <div class="footer-element">
+        Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
+      </div>
+    </footer>
+    <script src="../js/constants.js "></script>
+    <script src="../js/common.js"></script>
+
+    <script src="../js/signIn.js"></script>
+  </body>
+</html>

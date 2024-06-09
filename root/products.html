@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <title>Shopping Cart</title>
+  </head>
+
+  <body onresize="resizeCartWindow()">
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li class="navbar__crumb first-box">
+            <a class="navbar-img" href="#">
+              <img
+                class="cart-logo"
+                src="../static/images/logo.png"
+                alt="cart logo"
+              />
+            </a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item home-link-text"
+          >
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text"
+          >
+            <a href="./products.html">Products </a>
+          </li>
+          <li class="navbar__crumb last-box navbar-brand mb-0 h1">
+            <a class="nav-item nav-sign-item nav-hide-item" href="./signIn.html"
+              >SignIn</a
+            >
+            <a
+              class="nav-item nav-register-item nav-hide-item"
+              href="./register.html"
+              >Register
+            </a>
+            <div class="cart" onclick="goToCartPage()">
+              <a href="#">
+                <img
+                  class="cart-image"
+                  src="../static/images/cart.svg"
+                  alt="cart logo"
+                /><span class="cart-item-text item-number"></span>
+                <span class="cart-item-text item">Items</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="side-nav">
+      <ul class="topnav">
+        <li class="navbar__crumb sidemenu-style">
+          <a class="link active" onclick="goToLink('fruit')"
+            >Fruits And Vegetables</a
+          >
+        </li>
+        <div class="myLinks">
+          <li class="navbar__crumb sidemenu-style">
+            <a class="link" onclick="goToLink('bakeries')"
+              >Bakery Cakes And Dairy</a
+            >
+          </li>
+          <li class="navbar__crumb sidemenu-style">
+            <a class="link" onclick="goToLink('beverage')">Beverages</a>
+          </li>
+          <li class="navbar__crumb sidemenu-style">
+            <a class="link" onclick="goToLink('beauties')"
+              >Beauty And Hygiene</a
+            >
+          </li>
+          <li class="navbar__crumb sidemenu-style">
+            <a class="link" onclick="goToLink('babies')">Baby Care</a>
+          </li>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="changeLinkItem()">
+          <i class="arrow down"></i>
+        </a>
+      </ul>
+      <div id="own-products" class="product-list"></div>
+    </section>
+
+    <!-- modal -->
+    <div id="itemExist" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h4>Item is Already in the cart.</h4>
+      </div>
+    </div>
+    <div id="itemNotExist" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h4>Item Added to cart successfully.</h4>
+      </div>
+    </div>
+    <!-- cart modal -->
+    <div id="cartModal" class="w3-modal">
+      <div class="w3-modal-content cart-full-content">
+        <header class="w3-container w3-header">
+          <span onclick="closeCartModal()" class="w3-button w3-display-topright"
+            >&times;</span
+          >
+          <h5 class="modal-header"></h5>
+        </header>
+        <div class="w3-container items"></div>
+        <div class="model-content">
+          <div class="model-content-ad-left">
+            <img src="../static/images/lowest-price.png" alt="lowest price" />
+          </div>
+          <div class="model-content-right">
+            <p>You won't find it cheaper anywhere</p>
+          </div>
+        </div>
+        <div class="model-content-footer">
+          <span class="modal-footer-span"
+            >Promo code can be applied on payment page.</span
+          >
+          <button
+            class="model-content-footer-button"
+            onclick="addToCart().proceedToBuy()"
+          >
+            <span>Proceed to Checkout</span>
+            <span class="totalPrice"> </span><i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="emptyCart" class="w3-modal">
+      <div class="w3-modal-content empty-modal-content">
+        <header class="w3-container w3-header">
+          <span
+            onclick="document.getElementById('emptyCart').style.display='none'"
+            class="w3-button w3-display-topright"
+            >&times;</span
+          >
+          <h5 class="modal-header">My Cart</h5>
+        </header>
+        <div class="empty-content">
+          <div class="model-empty-content">
+            <p>No items in your cart.</p>
+            <span>Your favorite item are just a click away.</span>
+          </div>
+        </div>
+        <div class="model-content-footer">
+          <button class="model-content-footer-button">
+            <span>Start Shopping</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-layout">
+      <div class="footer-element">
+        Copyright &copy; 2011-2018 Sabka Bazaar Grocery Supplies Pvt Ltd
+      </div>
+    </footer>
+    <script src="../js/constants.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </body>
+</html>

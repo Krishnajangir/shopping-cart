@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <title>Shopping Cart</title>
+  </head>
+
+  <body onresize="resizeCartWindow()">
+    <header>
+      <nav>
+        <ul class="navbar">
+          <li class="navbar__crumb first-box">
+            <a class="navbar-img" href="#">
+              <img
+                class="cart-logo"
+                src="../static/images/logo.png"
+                alt="cart logo"
+              />
+            </a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item home-link-text"
+          >
+            <a href="./index.html">Home</a>
+          </li>
+          <li
+            class="navbar__crumb mid-box navbar-brand mb-0 h1 nav-hide-item product-link-text"
+          >
+            <a href="./products.html">Products </a>
+          </li>
+          <li class="navbar__crumb last-box navbar-brand mb-0 h1">
+            <a class="nav-item nav-sign-item nav-hide-item" href="./signIn.html"
+              >SignIn</a
+            >
+            <a
+              class="nav-item nav-register-item nav-hide-item"
+              href="./register.html"
+              >Register
+            </a>
+            <div class="cart">
+              <a href="#">
+                <img
+                  class="cart-image"
+                  src="../static/images/cart.svg"
+                  alt="cart logo"
+                /><span class="cart-item-text item-number"></span>
+                <span class="cart-item-text item">Items</span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section>
+      <div id="mobile-cart-container">
+        <div class="w3-card-4 card-1">
+          <header class="cart-w3-container cart-card-title">
+            <h5 class="cart-item-header"></h5>
+          </header>
+
+          <div class="cart-w3-container cart-data-list">
+            <div class="w3-container items"></div>
+          </div>
+          <div class="model-content">
+            <div class="model-content-ad-left">
+              <img src="../static/images/lowest-price.png" alt="lowest price" />
+            </div>
+            <div>
+              <p class="cart-right-text">You won't find it cheaper anywhere</p>
+            </div>
+          </div>
+          <footer class="cart-w3-container model-content-footer">
+            <span class="modal-footer-span"
+              >Promo code can be applied on payment page.</span
+            >
+            <button class="cart-proceed-text" onclick="proceedToBuy()">
+              <span>Proceed to Checkout</span>
+              <span class="totalPrice"> </span
+              ><i class="fas fa-arrow-right"></i>
+            </button>
+          </footer>
+        </div>
+      </div>
+      <div id="cart-empty-container">
+        <div class="w3-card-4 card-1">
+          <header class="cart-w3-container cart-card-title">
+            <h5>My Cart</h5>
+          </header>
+
+          <div class="cart-w3-container cart-mid-title">
+            <p>No items in your cart.</p>
+            <span>Your favorite item are just a click away.</span>
+          </div>
+          <footer class="cart-footer-text cart-w3-container">
+            <h5 onclick="startShop()">Start Shopping</h5>
+          </footer>
+        </div>
+      </div>
+    </section>
+    <script src="../js/constants.js"></script>
+    <script src="../js/template.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+  </body>
+</html>
